@@ -79,5 +79,64 @@
   }
 }
 
+@mixin button-filled {
+  padding: 16px 8px;
+  display: flex;
+  justify-content: center;
+  background: $vinous;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: $white;
+  border-radius: 51px;
+  box-shadow: 0px 4px 12px rgba(98, 31, 42, 0.2);
+
+  &:hover{
+    background: $lightVinous;
+  }
+  &:active{
+    background: $vinous;
+    box-shadow: 4px 4px 10px rgba(98, 31, 42, 0.15), 0px 4px 12px rgba(98, 31, 42, 0.2), inset -6px -6px 8px rgba(98, 31, 42, 0.1);
+  }
+
+  @media(min-width: 1440px){
+    font-size: 18px;
+    line-height: 22px;
+    padding: 20px 12px;
+  }
+}
 
 
+@mixin button-outlined  {
+  @include button-filled;
+  background: $white;
+  border: 2px solid $vinous;
+  filter: drop-shadow(0px 4px 12px rgba(98, 31, 42, 0.2));
+  &:hover{
+    box-shadow: 0px 4px 8px rgba(98, 31, 42, 0.1);
+  }
+  &:active{
+    box-shadow: 4px 4px 10px rgba(98, 31, 42, 0.15), 0px 4px 12px rgba(98, 31, 42, 0.2), inset -6px -6px 8px rgba(98, 31, 42, 0.1);
+  }
+
+}
+
+@mixin button-outlined-d {
+  @include button-filled;
+  @media(min-width: 1440px){
+    @include button-outlined;
+  }
+}
+
+@mixin button-filled-small {
+  @include button-filled;
+  font-size: 12px;
+  line-height: 15px;
+  padding: 12px 32px !important;
+  @media(min-width: 1440px){
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
