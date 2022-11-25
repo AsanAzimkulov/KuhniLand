@@ -1,0 +1,55 @@
+@mixin item-spacing($space){
+  margin-bottom: $space;
+  &:last-child{
+    margin-bottom: 0;
+  }
+}
+@mixin item-spacing-gor($space){
+  margin-right: $space;
+  &:last-child{
+    margin-right: 0;
+  }
+}
+
+@mixin item-spacing-gor-reverse($space){
+  margin-right: $space;
+  &:first-child{
+    margin-right: 0;
+  }
+}
+
+@mixin ver-p($top, $bottom: $top){
+  padding-top: $top;
+  padding-bottom: $bottom;
+}
+
+@mixin ver-m($top, $bottom: $top){
+  margin-top: $top;
+  margin-bottom: $bottom;
+}
+
+@mixin standart-section-spacing{
+  @include ver-m(80px);
+  @media(min-width: 768px){
+    @include ver-m(100px);
+  }
+  @media(min-width: 1440px){
+    @include ver-m(240px);
+  }
+}
+
+@mixin extra-section-spacing($extra1, $extra2, $extra3){
+  @include ver-m((80px + $extra1));
+  @media(min-width: 768px){
+    @include ver-m((100px + $extra2));
+  }
+  @media(min-width: 1440px){
+    @include ver-m((240px + $extra3));
+  }
+}
+
+.no-scroll-y{
+  overflow-y: hidden;
+  width: calc(100vw - 17px);
+}
+
