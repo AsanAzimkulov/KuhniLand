@@ -104,7 +104,8 @@
 
   &__list {
     margin-bottom: 40px;
-    &__item{
+    &__item a{
+      display: block;
       padding: 16px 20px;
       font-family: 'Montserrat', sans-serif;
       font-style: normal;

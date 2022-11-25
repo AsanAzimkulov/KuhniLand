@@ -126,7 +126,8 @@
 .header__list {
   margin-bottom: 40px;
 }
-.header__list__item {
+.header__list__item a {
+  display: block;
   padding: 16px 20px;
   font-family: "Montserrat", sans-serif;
   font-style: normal;
@@ -136,11 +137,11 @@
   color: #747474;
   background: #FFFFFF;
 }
-.header__list__item:hover {
+.header__list__item a:hover {
   background: #F1F1F1;
   color: #621F2A;
 }
-.header__list__item--active {
+.header__list__item a--active {
   background: #621F2A;
   color: #FFFFFF;
 }
