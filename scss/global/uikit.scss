@@ -151,6 +151,7 @@
   &:hover{
     box-shadow: 0px 4px 8px rgba(98, 31, 42, 0.1);
     color: white;
+    border-color: $lightVinous;
   }
   &:active{
     box-shadow: 4px 4px 10px rgba(98, 31, 42, 0.15), 0px 4px 12px rgba(98, 31, 42, 0.2), inset -6px -6px 8px rgba(98, 31, 42, 0.1);
