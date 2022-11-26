@@ -12,6 +12,7 @@ $(document).ready(function (e) {
     $('.header').toggleClass('header--opened');
   })
 })
+$('a[href="#"]').on('click', (e) => e.preventDefault())
 $('.vidgets .contact__main *').hover(() => {
   $('.vidgets .contact').addClass('contact--visible');
 })
