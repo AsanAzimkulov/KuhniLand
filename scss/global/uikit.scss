@@ -79,6 +79,20 @@
   }
 }
 
+@mixin secondary-text($color: $grey) {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 130%;
+  color: $color;
+
+  @media(min-width: 1440px){
+    font-size: 18px;
+    line-height: 140%;
+  }
+} 
+
 @mixin button-filled {
   padding: 16px 8px;
   display: flex;
