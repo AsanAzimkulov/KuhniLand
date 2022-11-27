@@ -7,6 +7,9 @@
   &__title {
     margin-bottom: 40px;
     @include secondary-title;
+    &--desctop{
+      display: none;
+    }
   }
 
   &__top {
@@ -259,6 +262,7 @@
         width: 100%;
       }
       &__control{
+        z-index: 3;
         position: absolute;
         height: 100%;
         width: 80px;
@@ -314,8 +318,6 @@
       min-height: 447px;
       width: 60.18%;
     }
-
-
   }
 }
 

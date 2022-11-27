@@ -236,7 +236,7 @@
   </section>
 
   <section class="stages">
-    <div class="stages__wrapper">
+    <div class="stages__wrapper block-wrapper">
       <h2 class="stages__title stages__title--desctop">Состав работ</h2>
 
       <div class="block-wrapper">
@@ -246,18 +246,18 @@
               <div class="stages__top__item__circle">1</div>
               <p>Выбор конфигурации</p>
             </a></li>
-            <li class="stages__top__item--dec"></li>
+          <li class="stages__top__item--dec"></li>
           <li class="stages__top__item"><a href="#">
               <div class="stages__top__item__circle">2</div>
               <p>Выбор материала и цвета</p>
             </a></li>
-            <li class="stages__top__item--dec"></li>
+          <li class="stages__top__item--dec"></li>
           <li class="stages__top__item"><a href="#">
               <div class="stages__top__item__circle">3</div>
               <p>Дизайн-проект
                 и изготовление</p>
             </a></li>
-            <li class="stages__top__item--dec"></li>
+          <li class="stages__top__item--dec"></li>
           <li class="stages__top__item"><a href="#">
               <div class="stages__top__item__circle">4</div>
               <p>Установка</p>
@@ -352,6 +352,125 @@
       </div>
 
     </div>
+    </div>
+  </section>
+
+  <section class="calc">
+    <div class="calc__wrapper block-wrapper">
+      <h2 class="calc__title">Предварительный расчёт</h2>
+      <p class="calc__description">
+        Предлагаем вам посмотреть на внешний вид вашей будущей гриль-кухни и получить предварительный расчет стоимости
+        изготовления. Ваши персональные данные не потребуются.
+      </p>
+      <p class="calc__description">Выберите соответствующие характеристики гриль-кухни:</p>
+      <div class="calc__form-wrapper">
+        <div class="calc__picture">
+        </div>
+        <form action="#" class="calc__form">
+          <div class="calc__form__group">
+            <h3 class="calc__form__group__title">Материал фасада</h3>
+            <div class="calc__input">
+              <label class="calc__input__label">
+                <input type="radio" class="calc__input__radio" name="Материал фасада" value="нержавеющая сталь" checked>
+                <div class="calc__input__radio-custom"></div>
+                <span>нержавеющая сталь</span>
+              </label>
+            </div>
+            <div class="calc__input">
+              <label class="calc__input__label">
+                <input type="radio" class="calc__input__radio" name="Материал фасада" value="композит">
+                <div class="calc__input__radio-custom"></div>
+                <span>композит</span>
+
+              </label>
+            </div>
+          </div>
+
+          <div class="calc__form__group">
+            <h3 class="calc__form__group__title">Тип размещения</h3>
+            <div class="calc__input">
+              <label class="calc__input__label">
+                <input type="radio" class="calc__input__radio" name="Тип размещения" value="открытая терраса" checked>
+                <div class="calc__input__radio-custom"></div>
+                <span>открытая терраса</span>
+
+              </label>
+            </div>
+            <div class="calc__input">
+              <label class="calc__input__label">
+                <input type="radio" class="calc__input__radio" name="Тип размещения" value="закрытая терраса">
+                <div class="calc__input__radio-custom"></div>
+                <span>закрытая терраса</span>
+
+              </label>
+            </div>
+          </div>
+          <div class="calc__form__group">
+            <h3 class="calc__form__group__title">Размер</h3>
+            <div class="calc__input">
+              <label class="calc__input__label">
+                <input type="radio" class="calc__input__radio" name="Размер" value="2,2 п.м" checked>
+                <div class="calc__input__radio-custom"></div>
+                <span>2,2 п.м</span>
+
+              </label>
+            </div>
+            <div class="calc__input">
+              <label class="calc__input__label">
+                <input type="radio" class="calc__input__radio" name="Размер" value="2,8 п.м">
+                <div class="calc__input__radio-custom"></div>
+                <span>2,8 п.м</span>
+
+              </label>
+            </div>
+            <div class="calc__input">
+              <label class="calc__input__label">
+                <input type="radio" class="calc__input__radio" name="Размер" value="более 3 п.м">
+                <div class="calc__input__radio-custom"></div>
+                <span>более 3 п.м</span>
+
+              </label>
+            </div>
+          </div>
+          <div class="calc__form__group">
+            <h3 class="calc__form__group__title">Конфигурация</h3>
+            <div class="calc__input">
+              <label class="calc__input__label">
+                <input type="radio" class="calc__input__radio" value="Прямая" name="Конфигурация" checked>
+                <div class="calc__input__radio-custom"></div>
+                <span>Прямая</span>
+
+              </label>
+            </div>
+            <div class="calc__input">
+              <label class="calc__input__label">
+                <input type="radio" class="calc__input__radio" value="Угловая" name="Конфигурация">
+                <div class="calc__input__radio-custom"></div>
+                <span>Угловая</span>
+
+              </label>
+            </div>
+            <div class="calc__input">
+              <label class="calc__input__label">
+                <input type="radio" class="calc__input__radio" value="П-образная" name="Конфигурация">
+                <div class="calc__input__radio-custom"></div>
+                <span>П-образная</span>
+
+              </label>
+            </div>
+            <div class="calc__input">
+              <label class="calc__input__label">
+                <input type="radio" class="calc__input__radio" value="С островком" name="Конфигурация">
+                <div class="calc__input__radio-custom"></div>
+                <span>С островком</span>
+
+              </label>
+            </div>
+          </div>
+          <input type="submit" class="calc__form__submit" value="Получить расчёт">
+          <a href="#" class="calc__form__contact">Связь с менеджером</a>
+        </form>
+      </div>
     </div>
   </section>
   <script src="main.js"></script>

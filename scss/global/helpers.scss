@@ -1,12 +1,12 @@
 @mixin item-spacing($space){
   margin-bottom: $space;
-  &:last-child{
+  &:last-of-type{
     margin-bottom: 0;
   }
 }
 @mixin item-spacing-gor($space){
   margin-right: $space;
-  &:last-child{
+  &:last-of-type{
     margin-right: 0;
   }
 }
