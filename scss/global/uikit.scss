@@ -79,6 +79,56 @@
   }
 }
 
+@mixin fourth-title($color: $white){
+  
+  font-family: 'Posterama Text';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 26px;
+  letter-spacing: -0.01em;
+  color:  $color;
+
+  @media(min-width: 1440px){
+    font-size: 36px;
+    line-height: 43px;
+  }
+}
+
+@mixin fifth-title($color: $darkGrey){
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: -0.01em;
+  color: $color;
+
+  @media(min-width: 768px){
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  @media(min-width: 1440px){
+    font-size: 24px;
+    line-height: 29px;
+  }
+}
+
+@mixin social-label{
+  @include fifth-title($white);
+  font-weight: 500;
+  @media(min-width: 1440px){
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+@mixin medium-title{
+  @include medium-text;
+  font-weight: 600;;
+}
+
 
 @mixin main-text($color: $grey) {
   font-family: 'Montserrat', sans-serif;
@@ -112,6 +162,80 @@
   }
 } 
 
+@mixin third-text($color: $white){
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 130%;
+  color: $color;
+
+  @media(min-width: 1440px){
+    font-size: 18px;
+    line-height: 140%;  
+  }
+}
+
+@mixin ps-text($color: $grey){
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: $color;
+  @media(min-width: 768px){
+    font-size: 14px;
+    line-height: 17px;
+  } 
+}
+
+@mixin fourth-text($color: $darkGrey){
+  @include third-text($color);
+
+  @media(min-width: 1440px){
+    font-size: 24px;
+    line-height: 140%;
+  }
+
+}
+
+@mixin light-text($color: $white){
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: $white;
+
+  @media(min-width: 1440px){
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+@mixin medium-text(){
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: $white;
+}
+
+@mixin form-g-title{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 140%;
+  color: $darkGrey;
+
+  @media(min-width: 1440px){
+    font-size: 24px;
+    line-height: 29px;
+  }
+}
+
 @mixin button-filled {
   padding: 16px 8px;
   display: flex;
@@ -125,6 +249,7 @@
   color: $white;
   border-radius: 51px;
   box-shadow: 0px 4px 12px rgba(98, 31, 42, 0.2);
+  transition: all 300ms ease-out;
 
   &:hover{
     background: $lightVinous;

@@ -10,6 +10,6 @@ $('.vidgets').on('mouseleave', () => {
   $('.vidgets .contact').removeClass('contact--visible');
 })
 
-$('.vidgets .calculate').on('mouseleave',() => {
+$('.vidgets .calculate').on('mouseleave', () => {
   $('.vidgets .calculate').removeClass('calculate--visible');
 })
