@@ -58,10 +58,13 @@ $('.cases .slider').on('transition-start', function (e) {
 
     $(panel).find('p').eq(i).find('span').text(value);
   }
-
-
-
 });
+
+// Reviews
+
+if ($('.reviews .slider__item').length > 1) {
+  new ChiefSlider('.reviews .slider')
+}
 
 
 
