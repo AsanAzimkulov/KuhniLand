@@ -546,11 +546,18 @@
     </div>
   </section>
   <section class="video">
-    <div class="video__wrapper">
+    <div class="video__wrapper block-wrapper">
       <h2 class="video__title">Видеообзор</h2>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/Ac76Dl0noZU" title="YouTube video player"
-        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
+      <div class="video__body">
+        <div class="plyr__video-embed" id="player">
+          <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/Ac76Dl0noZU?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen allowtransparency></iframe>
+        </div>
+      </div>
+      <h3 class="video__label">Видеообзор</h3>
     </div>
   </section>
   <script src="main.js"></script>

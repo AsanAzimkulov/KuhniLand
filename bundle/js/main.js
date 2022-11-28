@@ -13,6 +13,8 @@ $(document).ready(function (e) {
   })
 })
 $('a[href="#"]').on('click', (e) => e.preventDefault())
+
+const player = new Plyr('#player');
 // Stages
 
 if ($('.stages .slider__item').length > 1) {
