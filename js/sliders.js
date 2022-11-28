@@ -49,3 +49,10 @@ if ($('.reviews .slider__item').length > 1) {
   new ChiefSlider('.reviews .slider')
 }
 
+// Dealer
+
+if ($('.dealer .slider__item').length > 1) {
+  new ChiefSlider('.dealer .slider')
+}
+
+
