@@ -346,6 +346,7 @@
     &__inner-wrapper{
       margin: 0 auto;
       padding-right: 16px;
+      max-width: 1016px;
     }
     &__down{
       box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08);
@@ -385,6 +386,8 @@
     &__inner-wrapper{
       display: flex;
       justify-content: space-between;
+      max-width: 1440px;
+      padding-right: 0;
     }
     &__wrapper{
       padding: 0 40px;
