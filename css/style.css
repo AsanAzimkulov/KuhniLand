@@ -3502,4 +3502,155 @@
     flex: 0 0 20%;
   }
 }
+
+.shops {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+@media (min-width: 768px) {
+  .shops {
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+}
+@media (min-width: 1440px) {
+  .shops {
+    margin-top: 140px;
+    margin-bottom: 140px;
+  }
+}
+.shops__title {
+  font-family: "Posterama Text", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 100%;
+  text-align: center;
+  letter-spacing: -0.01em;
+  /* Primary Black */
+  color: #373E46;
+  margin-bottom: 40px;
+}
+@media (min-width: 768px) {
+  .shops__title {
+    font-size: 36px;
+    line-height: 100%;
+  }
+}
+@media (min-width: 1440px) {
+  .shops__title {
+    font-size: 64px;
+  }
+}
+.shops__list__item {
+  margin-bottom: 40px;
+}
+.shops__list__item:last-of-type {
+  margin-bottom: 0;
+}
+.shops__list__item__picture {
+  max-width: 440px;
+  margin: 0 auto;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.shops__list__item__picture img {
+  transform: scale(1.09);
+}
+.shops__list__item__picture__bg {
+  display: none;
+}
+.shops__list__item__picture:hover .shops__list__item__picture__bg {
+  display: inline;
+}
+.shops__list__item__picture:hover img {
+  display: none;
+}
+.shops__list__item__picture:hover::after {
+  position: absolute;
+  content: "";
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(55, 62, 70, 0.5);
+}
+.shops__list__item__title {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  /* Primary Black */
+  color: #373E46;
+  margin-bottom: 12px;
+}
+@media (min-width: 1440px) {
+  .shops__list__item__title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+.shops__list__item__description {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 130%;
+  color: #747474;
+}
+@media (min-width: 1440px) {
+  .shops__list__item__description {
+    font-size: 18px;
+    line-height: 140%;
+  }
+}
+@media (min-width: 768px) {
+  .shops__title {
+    margin-bottom: 60px;
+  }
+  .shops__list {
+    display: flex;
+    justify-content: space-between;
+  }
+  .shops__list__item {
+    width: 31.76%;
+  }
+}
+@media (min-width: 1440px) {
+  .shops__wrapper {
+    margin: 0 auto;
+  }
+  .shops__title {
+    margin-bottom: 80px;
+  }
+  .shops__list__item {
+    width: 29.3%;
+  }
+  .shops__list__item__picture {
+    margin-bottom: 40px;
+    width: 293px;
+    height: 240px;
+  }
+  .shops__list__item__picture img {
+    height: 100%;
+    transform: scaleX(1.1);
+  }
+  .shops__list__item:nth-child(1) .shops__list__item__picture img {
+    transform: scaleX(1.45);
+  }
+}
+@media (min-width: 1920px) {
+  .shops__list__item__picture {
+    width: 440px;
+    height: 240px;
+  }
+  .shops__list__item__picture img {
+    transform: none !important;
+  }
+}
 /*# sourceMappingURL=maps/style.css.map */
