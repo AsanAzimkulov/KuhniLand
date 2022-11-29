@@ -122,26 +122,33 @@
 
   &__list {
     margin-bottom: 40px;
-    &__item a{
-      display: block;
-      padding: 16px 20px;
-      font-family: 'Montserrat', sans-serif;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 17px;
-      color: $grey;
-      background: $white;
-
-      &:hover{
-        background: $bgWhite;
-        color: $vinous;
+    &__item{
+      a {
+        display: block;
+        padding: 16px 20px;
+        font-family: 'Montserrat', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+        color: $grey;
+        background: $white;
+  
+        &:hover{
+          background: $bgWhite;
+          color: $vinous;
+        }
+  
+        &:active{
+          background: $vinous;
+          color: $white;
+        }
       }
-
-      &:active{
+      &--active a{
         background: $vinous;
         color: $white;
       }
+
 
     }
   }
@@ -432,6 +439,11 @@
       display: flex;
       flex-wrap: wrap;
       &__item {
+        &--active{
+          a{
+            color: $vinous;
+          }
+        }
          a{
           font-size: 16px;
           line-height: 20px;
