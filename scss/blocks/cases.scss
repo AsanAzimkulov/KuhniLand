@@ -55,6 +55,32 @@
 
   .slider {
     height: 400px;
+
+    &::before{
+      pointer-events: none;
+      content: '';
+      position: absolute;
+      top:0;
+      left: 0;
+      width: 40px;
+      height: 100%;
+      display: block;
+      background: linear-gradient(90deg, rgba(55, 62, 70, 0.5) 0%, rgba(55, 62, 70, 0) 100%);
+      border-radius: 20px 0px 0px 20px;
+    }
+    &::after{
+      pointer-events: none;
+      content: '';
+      position: absolute;
+      top:0;
+      right: 0;
+      width: 40px;
+      height: 100%;
+      display: block;
+      background: linear-gradient(270deg, rgba(55, 62, 70, 0.5) 0%, rgba(55, 62, 70, 0) 100%);
+      border-radius: 0  20px 20px 0;
+    }
+
     &__container, &__wrapper, &__items, &__item{
       height: 100%;
       transform: none !important;
@@ -193,6 +219,9 @@
 
     .slider {
       height: 598px;
+      &::before, &::after{
+        width: 60px;
+      }
       &__item{
         &:nth-child(1){
           &>div{
@@ -272,6 +301,9 @@
 
     .slider{
       height: 929px;
+      &::before, &::after{
+        width: 80px;
+      }
       &__indicators{
         bottom: 40px;
       }
@@ -280,6 +312,7 @@
         width: 80px;
         background-position: 0px 304.5px;
         background-size: 40px 320px;
+        z-index: 2;
       }
 
       &__item{

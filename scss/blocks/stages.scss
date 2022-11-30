@@ -110,6 +110,7 @@
     }
   
     &__control {
+      z-index: 2;
     }
   
     &__indicators {
@@ -255,6 +256,32 @@
 
     .slider{
       min-height: 562px;
+
+      &::before{
+        pointer-events: none;
+        content: '';
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 80px;
+        height: 100%;
+        display: block;
+        background: linear-gradient(90deg, rgba(55, 62, 70, 0.5) 0%, rgba(55, 62, 70, 0) 100%);
+        border-radius: 20px 0px 0px 20px;
+      }
+      &::after{
+        pointer-events: none;
+        content: '';
+        position: absolute;
+        top:0;
+        right: 0;
+        width: 80px;
+        height: 100%;
+        display: block;
+        background: linear-gradient(270deg, rgba(55, 62, 70, 0.5) 0%, rgba(55, 62, 70, 0) 100%);
+        border-radius: 0  20px 20px 0;
+      }
+
       &__indicators{
         display: none;
       }

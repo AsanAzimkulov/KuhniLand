@@ -17,8 +17,15 @@
 
 
   .no-scroll-y {
-    .vidgets {
-      right: 36.5px
+    @media(min-width: 1440px){
+      .widgets {
+        right: 36.5px
+      }
+    }
+  }
+  &.no-scroll-y{
+    @media(min-width: 1440px){
+      padding-right: 16.5px;
     }
   }
 }

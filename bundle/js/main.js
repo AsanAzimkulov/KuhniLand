@@ -154,10 +154,8 @@ callRequestTriggers.forEach(requester =>
 
 function closeModalIfClickOutside(e, cb, modalBody) {
   let path = e.path || (e.composedPath && e.composedPath());
-
   if (!path.some(el => el === modalBody)) {
-    onCloseModal(closeModalCallIfNeed, callRequest);
-    cb();
+    onCloseModal(cb, callRequest);
   }
 }
 
@@ -174,10 +172,38 @@ document.querySelector('.m-call__close').addEventListener('click', (e) => {
 })
 
 function onCloseModal(closeIfNeedCb, modalContainer) {
+  closeIfNeedCb();
   modalContainer.removeEventListener('click', closeIfNeedCb);
   document.body.classList.remove('no-scroll-y');
   document.documentElement.classList.remove('no-scroll-y');
 }
+
+const mainModals = document.querySelectorAll('.main-modal');
+
+[...mainModals].forEach((modal) => {
+
+  const mainModalBody = modal.querySelector('.main-modal__body');
+
+  const callMainModalTriggers = document.querySelectorAll(`.call-main-modal[data-main-modal="${modal.dataset.mainModal}"]`);
+
+  const closeMainModalIfNeed = (event) => closeModalIfClickOutside(event, () => modal.classList.remove('main-modal--opened'), mainModalBody)
+
+  callMainModalTriggers.forEach(trigger =>
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.classList.add('main-modal--opened')
+      onOpenModal(closeMainModalIfNeed, modal);
+    }));
+
+  modal.querySelector('.main-modal__close').addEventListener('click', (e) => {
+    modal.classList.remove('main-modal--opened');
+    onCloseModal(closeMainModalCallIfNeed, modal)
+  })
+
+
+
+})
+
 $('a[href="#"]').on('click', (e) => e.preventDefault())
 
 const player = new Plyr('#player');
@@ -238,6 +264,13 @@ if ($('.dealer .slider__item').length > 1) {
   new ChiefSlider('.dealer .slider')
 }
 
+// Main-modal
+$('.main-modal .slider').each((i, el) => {
+  if ($(el).find('.slider__item').length > 1) {
+    new ChiefSlider(el);
+  }
+  
+})
 
 
 
@@ -265,7 +298,6 @@ document.addEventListener('mousemove', (evt) => {
 
 $('.widgets').on('mouseleave', function (e)  {
   $(this).removeClass('widgets--hover')
-  console.log(2)
 })
 
 

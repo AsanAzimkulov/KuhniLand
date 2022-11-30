@@ -115,6 +115,23 @@
   }
 }
 
+@mixin title-modal{
+  font-family: 'Posterama Text';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 100%;
+  text-align: center;
+  letter-spacing: -0.01em;
+  color: $darkGrey;
+  @media(min-width: 768px){
+    font-size: 24px;
+  }
+  @media(min-width: 1440px){
+    font-size: 36px;
+  }
+}
+
 @mixin social-label{
   @include fifth-title($white);
   font-weight: 500;

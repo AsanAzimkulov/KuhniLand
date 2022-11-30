@@ -23,7 +23,6 @@ document.addEventListener('mousemove', (evt) => {
 
 $('.widgets').on('mouseleave', function (e)  {
   $(this).removeClass('widgets--hover')
-  console.log(2)
 })
 
 
