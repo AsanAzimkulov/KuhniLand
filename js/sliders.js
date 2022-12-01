@@ -56,10 +56,14 @@ if ($('.dealer .slider__item').length > 1) {
 }
 
 // Main-modal
-$('.main-modal .slider').each((i, el) => {
-  if ($(el).find('.slider__item').length > 1) {
-    new ChiefSlider(el);
-  }
-  
-})
+
+// setTimeout(() => {
+//   $('.main-modal .slider').each((i, el) => {
+//     if ($(el).find('.slider__item').length > 1) {
+//       new ChiefSlider(el);
+//     }
+
+//   })
+// }, 4000)
+
 

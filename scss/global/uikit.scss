@@ -132,6 +132,27 @@
   }
 }
 
+@mixin title-success-form{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.01em;
+  color: $darkGrey;
+
+  @media(min-width: 768px){
+    font-size: 22px;
+    line-height: 27px;
+  }
+
+  @media(min-width: 1440px){
+    font-size: 24px;
+    line-height: 29px;
+  }
+}
+
 @mixin social-label{
   @include fifth-title($white);
   font-weight: 500;
@@ -140,6 +161,8 @@
     line-height: 20px;
   }
 }
+
+
 
 @mixin medium-title{
   @include medium-text;

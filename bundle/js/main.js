@@ -79,7 +79,6 @@ $(document).ready(function (e) {
             const indicator = document.querySelector(`.header__list a[href="#${element.querySelector('a.anchor').id}"]`);
 
             if (indicator) {
-              console.log(indicator)
               document.querySelectorAll('.header__list__item--active').forEach(el => el.classList.remove('header__list__item--active'));
               indicator.closest('.header__list__item').classList.add('header__list__item--active');
             }
@@ -134,6 +133,15 @@ im.opts.placeholder = "5"
 
 im.mask('.input-number');
 
+const forms = document.querySelectorAll('.m-call__form');
+
+function onCallRequest(e) {
+  e.preventDefault();
+  document.body.classList.add('call-requested');
+}
+
+forms.forEach(form => form.addEventListener('submit', onCallRequest));
+// Call request modal
 const callRequest = document.querySelector('.m-call');
 const callRequestBody = callRequest.querySelector('.m-call__wrapper');
 
@@ -143,10 +151,11 @@ const callRequestTriggers = document.querySelectorAll('.m-call-request');
 const closeModalCallIfNeed = (event) => closeModalIfClickOutside(event, () => callRequest.classList.remove('m-call--opened'), callRequestBody)
 
 
+
 callRequestTriggers.forEach(requester =>
   requester.addEventListener('click', (e) => {
     e.preventDefault();
-    callRequest.classList.add('m-call--opened')
+    callRequest.classList.add('m-call--opened');
     onOpenModal(closeModalCallIfNeed, callRequest);
   }));
 
@@ -178,9 +187,14 @@ function onCloseModal(closeIfNeedCb, modalContainer) {
   document.documentElement.classList.remove('no-scroll-y');
 }
 
+// Main modal
 const mainModals = document.querySelectorAll('.main-modal');
 
 [...mainModals].forEach((modal) => {
+
+  if (modal.querySelector('.slider') && Array.from(modal.querySelectorAll('.slider .slider__item')).length > 1) {
+    setTimeout(() => new ChiefSlider(modal.querySelector('.slider')), 4000)
+  }
 
   const mainModalBody = modal.querySelector('.main-modal__body');
 
@@ -191,6 +205,16 @@ const mainModals = document.querySelectorAll('.main-modal');
   callMainModalTriggers.forEach(trigger =>
     trigger.addEventListener('click', (e) => {
       e.preventDefault();
+      if (+modal.dataset.mainModal === 4) {
+        // Review modal
+        [...modal.querySelectorAll('.main-modal__text'), ...modal.querySelectorAll('.main-modal__subtitle'), ...modal.querySelectorAll('.main-modal__date')].forEach(el => el.remove());
+
+        const content = trigger.closest('.reviews__item').querySelector('.reviews__item__modal-content');
+        console.log(content)
+
+        Array.from(content.children).forEach(contentElement => mainModalBody.append(contentElement));
+
+      }
       modal.classList.add('main-modal--opened')
       onOpenModal(closeMainModalIfNeed, modal);
     }));
@@ -200,10 +224,28 @@ const mainModals = document.querySelectorAll('.main-modal');
     onCloseModal(closeMainModalCallIfNeed, modal)
   })
 
-
-
 })
 
+
+// Calc modal
+
+const calcModal = document.querySelector('.calc-modal');
+const calcModalClose = document.querySelector('.calc-modal__close');
+
+const calcForm = document.querySelector('.calc__form');
+
+function empty() { }
+
+calcForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  onOpenModal(empty, calcModal)
+  calcModal.classList.add('calc-modal--opened');
+})
+
+calcModalClose.addEventListener('click', () => {
+  onCloseModal(empty, calcModal);
+  calcModal.classList.remove('calc-modal--opened')
+})
 $('a[href="#"]').on('click', (e) => e.preventDefault())
 
 const player = new Plyr('#player');
@@ -265,12 +307,16 @@ if ($('.dealer .slider__item').length > 1) {
 }
 
 // Main-modal
-$('.main-modal .slider').each((i, el) => {
-  if ($(el).find('.slider__item').length > 1) {
-    new ChiefSlider(el);
-  }
-  
-})
+
+// setTimeout(() => {
+//   $('.main-modal .slider').each((i, el) => {
+//     if ($(el).find('.slider__item').length > 1) {
+//       new ChiefSlider(el);
+//     }
+
+//   })
+// }, 4000)
+
 
 
 

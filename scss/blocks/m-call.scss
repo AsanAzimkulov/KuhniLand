@@ -10,6 +10,20 @@
   &--opened {
     display: block;
   }
+  &__success{
+    display: none;
+    justify-content: center;
+    flex-wrap: wrap;
+    &__image{
+      width: 32px;
+      height: 32px;
+      margin-bottom: 20px;
+    }
+    &__info{
+      @include title-success-form;
+      width: 100%;
+    }
+  }
   &__wrapper {
     left: 50%;
     top: 80px;
@@ -153,12 +167,24 @@
   }
 
   @media(min-width: 768px){
+    &__success{
+      &__image{
+        width: 48px;
+        height: 48px;
+      }
+    }
     &__wrapper{
       width: 400px;
     }
   }
 
   @media(min-width: 1440px){
+    &__success{
+      &__image{
+        width: 64px;
+        height: 64px;
+      }
+    }
     &__wrapper{
       width: 590px;
     }
@@ -221,6 +247,15 @@
     &__wrapper{
       top: 180px;
     }
+  }
+}
+
+.call-requested{
+  .m-call__success{
+    display: flex;
+  }
+  .m-call__title, .m-call__form{
+    display: none;
   }
 }
 

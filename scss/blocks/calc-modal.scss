@@ -1,0 +1,292 @@
+.calc-modal {
+  position: fixed;
+  overflow-y: scroll;
+  height: 100vh;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  display: none;
+  background: rgba(black, 0.25);
+  
+  &--opened {
+    display: block;
+  }
+
+  &__wrapper {
+    position: relative;
+    min-height: 100vh;
+    &--1{
+      background: url(../../images/m-1-m.png) no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    &--2{
+      background: url(../../images/m-2-m.png) no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    &--3{
+      background: url(../../images/m-3-m.png) no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    &--4{
+      background: url(../../images/m-4-m.png) no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    width: 100vw;
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+  &__body{
+    padding: 40px 20px;
+  }
+
+  &__close {
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 18px;
+    height: 18px;
+    background: url(../../images/icons/c-c-m.svg) no-repeat;
+  }
+
+
+  &__title {
+    @include secondary-title;
+    font-size: 22px;
+    line-height: 22px;
+    color: $white;
+    margin-bottom: 40px;
+  }
+  .cases__panel{
+    background: rgba(55, 62, 70, 0.6);
+    backdrop-filter: blur(2px);
+    &__wrapper{
+      padding: 0;
+      margin: 0 !important;
+    }
+    &__title{
+      color: $white;
+    }
+    &__description{
+      color: $white;
+    }
+    &__ps{
+      color: $white;
+    }
+  }
+  &__actions{
+    margin-top: 40px;
+    li{
+      &:nth-child(1){
+        a{
+          border-radius: 12px 12px 0 0;
+        }
+      }
+
+      &:nth-child(2){
+        a{
+          border-bottom: none;
+          border-top: none;
+          &:hover{
+            svg path{
+              stroke: $vinous;
+              fill: none;
+            }
+          }
+        }
+      }
+
+      &:nth-child(3){
+        a{
+          margin-bottom: 20px;
+          border-radius: 0 0 12px 12px;
+        }
+      }
+      &:nth-child(4){
+        a{
+          background: transparent;
+          border: none;
+          &:hover{
+            background: transparent;
+            color: $white;
+          }
+        }
+      }
+    }
+    &__item{
+      padding: 20px 0;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      background: $vinous;
+      justify-content: center;
+      border: 1px solid $lineGrey;
+      @include main-text($white);
+      font-weight: 500;
+      cursor: pointer;
+      &:hover{
+        background: $white;
+        color: $vinous;
+        svg path{
+          fill: $vinous;
+        }
+      }
+      svg{
+        margin-right: 12px;
+      }
+    }
+  }
+
+  @media(min-width: 768px){
+    &__close {
+      width: 32px;
+      height: 32px;
+      background: url(../../images/icons/c-c-t.svg) no-repeat;
+    }
+    &__title{
+      br{
+        display: none;
+      }
+    }
+    &__wrapper{
+      &--1{
+        background: url(../../images/m-1-t.png) no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+      &--2{
+        background: url(../../images/m-2-t.png) no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+      &--3{
+        background: url(../../images/m-3-t.png) no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+      &--4{
+        background: url(../../images/m-4-t.png) no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+    }
+    &__body{
+      min-height: 100vh;
+      padding: 40px;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+    }
+    &__actions{
+      display: flex;
+      height: 64px;
+      align-items: center;
+      justify-content: stretch;
+      margin: 0 auto;
+      margin-top: 80px;
+      li{
+        background: $vinous;
+        &:nth-child(1){
+          border-radius: 12px 0 0 12px;
+        }
+        &:nth-child(4){
+          border-radius: 0 12px 12px 0;
+          a{
+            background: $vinous;
+          }
+          &:hover{
+            a{
+  
+              color: $vinous;
+              background: $white;
+              border-radius: 12px !important;
+              svg path{
+                stroke: $vinous;
+              }
+            }
+          }
+        }
+      }
+      &__item{
+        border-radius: 12px !important;
+        border: none !important;
+        margin-bottom: 0 !important;
+        padding: 20px 8px;
+      }
+    }
+  }
+
+  @media(min-width: 1440px){
+    &__close {
+      width: 48px;
+      height: 48px;
+      right: 50px;
+      top: 40px;
+      background: url(../../images/icons/c-c-d.svg) no-repeat;
+    }
+    &__wrapper{
+      &--1{
+        background: url(../../images/m-1.png) no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+      &--2{
+        background: url(../../images/m-2.png) no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+      &--3{
+        background: url(../../images/m-3.png) no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+      &--4{
+        background: url(../../images/m-4.png) no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+    }
+    &__body{
+      padding: 60px 0;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    &__actions{
+      width: 1000px;
+      li{
+        flex: 0 0 24%;
+        &:nth-child(1){
+          border-radius: 20px 0 0 20px;
+        }
+        &:nth-child(2){
+          flex: 0 0 27%;
+        }
+        &:nth-child(4){
+          border-radius: 0 20px 20px 0;
+        }
+      }
+      &__item{
+        border-radius: 20px !important;
+        svg{
+          margin-right: 17px;
+        }
+      }
+    }
+  }
+  @media(min-width: 1920px){
+    &__body{
+      max-width: 1440px;
+    }
+    &__actions{
+      width: 1160px;
+      &__item{
+
+      }
+    }
+  }
+}

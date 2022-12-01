@@ -42,7 +42,6 @@ $(document).ready(function (e) {
             const indicator = document.querySelector(`.header__list a[href="#${element.querySelector('a.anchor').id}"]`);
 
             if (indicator) {
-              console.log(indicator)
               document.querySelectorAll('.header__list__item--active').forEach(el => el.classList.remove('header__list__item--active'));
               indicator.closest('.header__list__item').classList.add('header__list__item--active');
             }
