@@ -22,6 +22,10 @@
       background: url(../../images/m-1.png) no-repeat;
       background-position: center;
       background-size: 1920px 100%;
+      @supports (gap: 1px) {
+      background: url(../../images/m-1.webp) no-repeat;
+      background-position: center;
+      }
       &::after{
         content: '';
         position: absolute;

@@ -124,6 +124,11 @@
         background: url(../../images/r-1.png) no-repeat;
         background-position: center;
         background-size: cover;
+        @supports (gap: 1px) {
+        background: url(../../images/r-1.webp) no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
       }
     }
     .slider{

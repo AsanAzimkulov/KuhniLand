@@ -19,6 +19,11 @@
     min-height: 465px;
     background-repeat: no-repeat;
     background-position: center;
+    @supports (gap: 1px) {
+    background-image: url('../../images/bg-1-m.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    }
   }
 
   &__title {
@@ -112,7 +117,10 @@
       background: url('../../images/bg-1-m.png');
       padding-top: 165px;
       background-size: cover;
-      
+      @supports (gap: 1px) {
+      background: url('../../images/bg-1-m.webp');
+      background-size: cover;
+      }
     }
   }
 
@@ -122,6 +130,11 @@
       background: url('../../images/bg-1.png');
       background-position: center;
       background-size: cover;
+      @supports (gap: 1px) {
+      background: url('../../images/bg-1.webp');
+      background-position: center;
+      background-size: cover;
+      }
     }
   }
 
@@ -129,6 +142,11 @@
     background: url('../../images/bg-1.png');
     background-position: center;
     background-size: cover;
+    @supports (gap: 1px) {
+    background: url('../../images/bg-1.webp');
+    background-position: center;
+    background-size: cover;
+    }
 
     &__wrapper{
       min-height: 837px;

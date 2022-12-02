@@ -17,7 +17,7 @@
   const callRequestTriggers = $('.m-call-request');
 
   callRequestTriggers.on('click', (e) => {
-    const contactWay = $(e.target).data('contact-way');
+    const contactWay = $(e.currentTarget).data('contact-way');
 
     $('.m-call .m-call__form__options__item').eq(contactWay - 1).click();
   });

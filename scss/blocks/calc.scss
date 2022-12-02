@@ -28,6 +28,11 @@
     background: url(../../images/calc-m.png) no-repeat;
     background-size: cover;
     background-position: center;
+    @supports (gap: 1px) {
+    background: url(../../images/calc-m.webp) no-repeat;
+    background-size: cover;
+    background-position: center;
+    }
   }
 
   &__form {
@@ -111,6 +116,11 @@
       background: url(../../images/calc-t.png) no-repeat;
       background-position: center;
       background-size: cover;
+      @supports (gap: 1px) {
+      background: url(../../images/calc-t.webp) no-repeat;
+      background-position: center;
+      background-size: cover;
+      }
     }
 
     &__form{
@@ -211,6 +221,11 @@
       background-position: center;
       background-size: cover;
       border-radius: 40px 0 0 40px;
+      @supports (gap: 1px) {
+      background: url(../../images/calc-d.webp) no-repeat;
+      background-position: center;
+      background-size: cover;
+      }
     }
   }
   
