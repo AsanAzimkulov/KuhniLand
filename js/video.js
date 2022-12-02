@@ -6,4 +6,4 @@ function init() {
     }
   }
 }
-window.onload = init;
+window.onload = () => setTimeout(init, 3000);
