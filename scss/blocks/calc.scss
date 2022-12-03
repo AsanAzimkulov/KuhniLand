@@ -64,6 +64,11 @@
 
     margin-bottom: 20px;
     cursor: pointer;
+
+    &--off{
+      display: none;
+    }
+    
     &__label{
       display: flex;
       align-items: center;

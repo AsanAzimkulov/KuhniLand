@@ -1,3 +1,9 @@
+// Global variables 
+
+window.conf = {
+  secondModal: false,
+}
+
 // Call request modal
 const callRequest = document.querySelector('.m-call');
 const callRequestBody = callRequest.querySelector('.m-call__wrapper');
@@ -28,8 +34,12 @@ function closeModalIfClickOutside(e, cb, modalBody) {
 function onOpenModal(closeIfNeedCb, modalContainer) {
   modalContainer.addEventListener('click', closeIfNeedCb);
 
-  document.body.classList.add('no-scroll-y');
-  document.documentElement.classList.add('no-scroll-y');
+  if (document.body.classList.contains('no-scroll-y') && document.documentElement.classList.contains('no-scroll-y')) {
+    window.conf.secondModal = true;
+  } else {
+    document.body.classList.add('no-scroll-y');
+    document.documentElement.classList.add('no-scroll-y');
+  }
 }
 
 document.querySelector('.m-call__close').addEventListener('click', (e) => {
@@ -40,8 +50,12 @@ document.querySelector('.m-call__close').addEventListener('click', (e) => {
 function onCloseModal(closeIfNeedCb, modalContainer) {
   closeIfNeedCb();
   modalContainer.removeEventListener('click', closeIfNeedCb);
-  document.body.classList.remove('no-scroll-y');
-  document.documentElement.classList.remove('no-scroll-y');
+  if (window.conf.secondModal) {
+    window.conf.secondModal = false;
+  } else {
+    document.body.classList.remove('no-scroll-y');
+    document.documentElement.classList.remove('no-scroll-y');
+  }
 }
 
 // Main modal

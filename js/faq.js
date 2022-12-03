@@ -1,6 +1,6 @@
 
-$('.faq__list__item__button').on('click', function () {
-  const thisListItem = $(this).closest('.faq__list__item');
+$('.faq__list__item').on('click', function () {
+  const thisListItem = $(this);
 
   if (thisListItem.hasClass('faq__list__item--active')) {
     thisListItem.removeClass('faq__list__item--active')

@@ -20,6 +20,9 @@
     overflow: hidden;
     aspect-ratio: 1.77 / 1;
     width: 100%;
+    #player{
+      aspect-ratio: 1.77 / 1;
+    }
 
     & > .plyr{
       transform: scale(1.01);

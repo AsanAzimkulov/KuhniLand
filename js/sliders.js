@@ -28,11 +28,19 @@ if ($('.cases .slider__item').length > 1) {
 $('.cases .slider').on('transition-start', function (e) {
   const itemContent = $('.cases .slider__item').eq($('.cases .slider__indicators li.active').attr('data-slide-to'));
 
-  const titleContent = itemContent.find('h3').contents();
+
+  const titleContent = $(itemContent).find('h3').contents();
+
+
 
   const panel = $('.cases__panel');
 
-  panel.find('h3').val(titleContent);
+  panel.find('h3').text('');
+
+  for (let i = 0; i < titleContent.length; i++) {
+    const node = titleContent[i];
+    panel.find('h3').append(node.cloneNode(true));
+  }
 
   const values = $(itemContent).find('p');
 
