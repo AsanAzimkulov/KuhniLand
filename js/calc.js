@@ -2,6 +2,7 @@ const form = document.querySelector('.calc__form');
 
 
 
+
 const formFields = {
   material: 'Материал фасада',
   installation: 'Тип размещения',
@@ -25,17 +26,17 @@ const formValues = {
     outside: 'открытая терраса'
   },
   [formFields.dimension](conf) {
-    const dimension = {
-      [this[formFields.configuration].straight]: [2.2, 2.8, 3.5],
-      [this[formFields.configuration].angular]: [2.6, 3.5],
-      [this[formFields.configuration].uShaped]: [4],
-      [this[formFields.configuration].withIsland]: [3.5]
-    }
-
-    return dimension[conf];
-
+    return dimensions[conf];
   }
 }
+
+const dimensions = {
+  [formValues[formFields.configuration].straight]: [2.2, 2.8, 3.5],
+  [formValues[formFields.configuration].angular]: [2.6, 3.5],
+  [formValues[formFields.configuration].uShaped]: [4],
+  [formValues[formFields.configuration].withIsland]: [3.5]
+}
+
 
 function getChecked(field) {
   const fieldInputsWrappers = Array.from(form.querySelectorAll(`input[name='${field}']`));
@@ -89,7 +90,8 @@ function getPricePerMeter(formData) {
 
   if (material === 'composit') {
     const installation = formData.get(formFields.installation);
-    return materialPrices[formValues[formFields.material][material][installation]];
+    console.log(installation)
+    return materialPrices[formValues[formFields.material][material]][installation];
   }
 
   return materialPrices[formValues[formFields.material][material]]
@@ -125,6 +127,145 @@ function formatKitchenName(material) {
   return 'композитного материала';
 }
 
+class FileNameBuilder {
+  constructor(value, separator) {
+    this.value = value;
+    this.separator = separator;
+    this.items = [];
+
+  }
+
+
+  add(value) {
+    this.value = this.value + this.separator + value
+    return this;
+  }
+
+  remove(value) {
+    this.value = this.value.replace(value, '').replace(this.separator + this.separator, this.separator);
+  }
+
+}
+
+function setLink(formData) {
+  const downloadBtn = calculationModal.querySelector('#calc-modal-installation-button');
+  const shareBtn = calculationModal.querySelector('#calc-modal-share');
+
+  const terms = {
+    base: 'grill-kuhnya',
+    separator: '-',
+    [formFields.configuration]: {
+      [formValues[formFields.configuration].straight]: 'pryamaya',
+      [formValues[formFields.configuration].angular]: 'uglovaya',
+      [formValues[formFields.configuration].uShaped]: 'p-obraznaya',
+      [formValues[formFields.configuration].withIsland]: 's-ostrovkov',
+    },
+    [formFields.installation]: {
+      [formValues[formFields.installation].inside]: 'dom',
+      [formValues[formFields.installation].outside]: 'ulitsa',
+    },
+    [formFields.material]: {
+      [formValues[formFields.material].composit]: 'kompozit',
+      [formValues[formFields.material].steel]: 'stal',
+    },
+    [formFields.dimension]: ['mini', 'midi', 'max']
+  };
+
+  const fileName = new FileNameBuilder(terms.base, terms.separator);
+
+  function formatDimension() {
+    const confDimensions = dimensions[formData.get(formFields.configuration)];
+    const dimension = Number.parseFloat(formData.get(formFields.dimension).replace(',', '.'));
+    let index = 0;
+
+    if (confDimensions.length === 3) {
+      index = confDimensions.indexOf(dimension);
+    } else if (confDimensions.length === 2) {
+      index = confDimensions.indexOf(dimension) === 0 ? 0 : 2;
+    } else {
+      index = 0
+    }
+    return terms[formFields.dimension][index];
+  }
+
+  fileName
+    .add(
+      terms[formFields.configuration][formData.get(formFields.configuration)]
+    )
+    .add(
+      terms[formFields.installation][formData.get(formFields.installation)]
+    )
+    .add(
+      terms[formFields.material][formData.get(formFields.material)]
+    )
+    .add(formatDimension())
+
+  if (formData.get(formFields.material) === formValues[formFields.material].steel) {
+    // If the material is steel there is no difference between the installation types
+
+    fileName.remove(
+      terms[formFields.installation][formData.get(formFields.installation)]
+    )
+  }
+
+
+  const css = `.calc-modal__wrapper--extras {
+    background: url(../../images/${fileName.value}-m.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  @supports (gap: 1px) {
+    .calc-modal__wrapper--extras {
+      background: url(../../images/${fileName.value}-m.webp) no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  @media (min-width: 768px) {
+    .calc-modal__wrapper--extras {
+      background: url(../../images/${fileName.value}-t.png) no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    @supports (gap: 1px) {
+      .calc-modal__wrapper--extras {
+        background: url(../../images/${fileName.value}-t.webp) no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+    }
+  }
+  @media (min-width: 1440px) {
+    .calc-modal__wrapper--extras {
+      background: url(../../images/${fileName.value}.png) no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    @supports (gap: 1px) {
+      .calc-modal__wrapper--extras {
+        background: url(../../images/${fileName.value}.webp) no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+    }
+  }`;
+
+  const head = document.head || document.getElementsByTagName('head')[0],
+    style = document.querySelector('head #calc-modal-bg-extras') || document.createElement('style');
+
+  head.appendChild(style);
+
+  style.type = 'text/css';
+  style.id = 'calc-modal-bg-extras';
+  if (style.styleSheet) {
+    // This is required for IE8 and below.
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+
+}
+
 form.addEventListener('submit', onCalc);
 
 const calculationModal = document.querySelector('.calc-modal');
@@ -154,6 +295,8 @@ function onCalc(e) {
 
   const installation = calculationModal.querySelector('#calc-modal-installation');
   installation.textContent = formData.get(formFields.installation);
+
+  setLink(formData);
 }
 
 

@@ -4,6 +4,15 @@
   left: 0;
   z-index: 19;
 
+  &--op-08 & {
+    &__wrapper{
+      background: none;
+    }
+    &__top {
+      background: rgba($white, 0.8);
+    }
+  }
+
   &__wrapper {
     width: 100vw;
     background: $white;
@@ -218,8 +227,13 @@
   }
 
   @media(min-width: 768px){
+    &--op-08 & {
+      &__top{
+        background: rgba($white, 0.8);
+      }
+    }
     &__top{
-      background: white;
+      background: $white;
       margin-bottom: 0;
       &__right{
         a {
@@ -337,6 +351,14 @@
 
 
   @media(min-width: 1440px){
+    &--op-08 & {
+      &__desctop-bg {
+        background: rgba($white, 0.8)
+      }
+      &__top{
+        background: none;
+      }
+    }
     &__desctop-bg{
       background: $white;
       height: 81px;
@@ -371,6 +393,7 @@
     }
 
     &__whatsapp, &__call{
+      display: none;
       width: 40px;
       height: 40px;
       img {
@@ -381,14 +404,67 @@
     &__request-call{
       font-size: 14px;
       line-height: 17px;
+      margin-right: 0;
     }
+
+    &__top{
+      &__right{
+        text-align: center;
+      }
+
+      &__left{
+        display: none;
+      }
+    }
+    &__down{
+      padding: 20px 0;
+      display: block;
+      order: -1;
+      background: none;
+      box-shadow: none;
+      display: flex;
+      align-items: center;
+    }
+
+    &__desctop-bg{
+      height: 81px;
+    }
+    &__inner-wrapper{
+      display: flex;
+      justify-content: space-between;
+      max-width: 1000px;
+      padding-right: 0;
+    }
+
+    &__list{
+      margin-bottom: 0;
+      display: flex;
+      flex-wrap: wrap;
+      &__item {
+        &--active{
+          a{
+            color: $vinous;
+          }
+        }
+         a{
+          padding: 0px !important;
+          background: none !important;
+          border-radius: 0;
+          &:hover{
+            color: $vinous;
+          }
+         }
+        @include item-spacing-gor(20px);
+      }
+    }
+
   }
 
 
   @media(min-width: 1920px){
 
     &__desctop-bg{
-      height: 116px;
+      height: 84px;
     }
     &__inner-wrapper{
       display: flex;
@@ -403,16 +479,9 @@
       font-size: 16px;
       line-height: 20px;
     }
-    &__call, &__whatsapp{
-      display: none;
-    }
     &__top{
       &__right{
-        display: block;
         text-align: center;
-        a{
-          margin-right: 0;
-        }
       }
 
       &__left{
@@ -429,7 +498,8 @@
       align-items: center;
     }
     &__number{
-      margin-bottom: 12px;
+      margin-bottom: 0;
+      margin-right: 20px !important;
       display: block;
       font-size: 16px;
       line-height: 20px;

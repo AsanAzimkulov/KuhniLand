@@ -177,7 +177,7 @@
     }
 
     &__list{
-      background: url(../../../images/bg-lines.svg) no-repeat;
+      // background: url(../../../images/bg-lines.svg) no-repeat;
       background-position-x: -0.5px;
       &__item{
         padding: 40px 0;
@@ -223,8 +223,8 @@
   @media(min-width: 1920px){
 
     &__list{
-      background: url(../../../images/bg-lines-2.svg) no-repeat;
-      background-position-x: -1px;
+      // background: url(../../../images/bg-lines-2.svg) no-repeat;
+      // background-position-x: -1px;
       &__item{
         padding: 105px 0 156px;
         width: 28.47%;

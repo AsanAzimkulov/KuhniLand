@@ -70,6 +70,12 @@
   left: 0;
   z-index: 19;
 }
+.header--op-08 .header__wrapper {
+  background: none;
+}
+.header--op-08 .header__top {
+  background: rgba(255, 255, 255, 0.8);
+}
 .header__wrapper {
   width: 100vw;
   background: #FFFFFF;
@@ -246,8 +252,11 @@
   justify-self: center;
 }
 @media (min-width: 768px) {
+  .header--op-08 .header__top {
+    background: rgba(255, 255, 255, 0.8);
+  }
   .header__top {
-    background: white;
+    background: #FFFFFF;
     margin-bottom: 0;
   }
   .header__top__right a {
@@ -387,6 +396,12 @@
   }
 }
 @media (min-width: 1440px) {
+  .header--op-08 .header__desctop-bg {
+    background: rgba(255, 255, 255, 0.8);
+  }
+  .header--op-08 .header__top {
+    background: none;
+  }
   .header__desctop-bg {
     background: #FFFFFF;
     height: 81px;
@@ -417,6 +432,7 @@
     line-height: 20px;
   }
   .header__whatsapp, .header__call {
+    display: none;
     width: 40px;
     height: 40px;
   }
@@ -427,11 +443,58 @@
   .header__request-call {
     font-size: 14px;
     line-height: 17px;
+    margin-right: 0;
+  }
+  .header__top__right {
+    text-align: center;
+  }
+  .header__top__left {
+    display: none;
+  }
+  .header__down {
+    padding: 20px 0;
+    display: block;
+    order: -1;
+    background: none;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+  }
+  .header__desctop-bg {
+    height: 81px;
+  }
+  .header__inner-wrapper {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1000px;
+    padding-right: 0;
+  }
+  .header__list {
+    margin-bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .header__list__item {
+    margin-right: 20px;
+  }
+  .header__list__item--active a {
+    color: #621F2A;
+  }
+  .header__list__item a {
+    padding: 0px !important;
+    background: none !important;
+    border-radius: 0;
+  }
+  .header__list__item a:hover {
+    color: #621F2A;
+  }
+  .header__list__item:last-of-type {
+    margin-right: 0;
   }
 }
 @media (min-width: 1920px) {
   .header__desctop-bg {
-    height: 116px;
+    height: 84px;
   }
   .header__inner-wrapper {
     display: flex;
@@ -446,15 +509,8 @@
     font-size: 16px;
     line-height: 20px;
   }
-  .header__call, .header__whatsapp {
-    display: none;
-  }
   .header__top__right {
-    display: block;
     text-align: center;
-  }
-  .header__top__right a {
-    margin-right: 0;
   }
   .header__top__left {
     display: none;
@@ -469,7 +525,8 @@
     align-items: center;
   }
   .header__number {
-    margin-bottom: 12px;
+    margin-bottom: 0;
+    margin-right: 20px !important;
     display: block;
     font-size: 16px;
     line-height: 20px;
@@ -1355,7 +1412,6 @@
     margin-bottom: 80px;
   }
   .project__list {
-    background: url(../../../images/bg-lines.svg) no-repeat;
     background-position-x: -0.5px;
   }
   .project__list__item {
@@ -1429,10 +1485,6 @@
   }
 }
 @media (min-width: 1920px) {
-  .project__list {
-    background: url(../../../images/bg-lines-2.svg) no-repeat;
-    background-position-x: -1px;
-  }
   .project__list__item {
     padding: 105px 0 156px;
     width: 28.47%;
@@ -4836,6 +4888,47 @@
   position: relative;
   left: 0;
   top: 0;
+}
+
+.calc-modal__wrapper--extras {
+  background: url(../../images/m-1-m.png) no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+@supports (gap: 1px) {
+  .calc-modal__wrapper--extras {
+    background: url(../../images/m-1-m.webp) no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+}
+@media (min-width: 768px) {
+  .calc-modal__wrapper--extras {
+    background: url(../../images/m-1-t.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  @supports (gap: 1px) {
+    .calc-modal__wrapper--extras {
+      background: url(../../images/m-1-t.webp) no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+}
+@media (min-width: 1440px) {
+  .calc-modal__wrapper--extras {
+    background: url(../../images/m-1.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  @supports (gap: 1px) {
+    .calc-modal__wrapper--extras {
+      background: url(../../images/m-1.webp) no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
 }
 .calc-modal__wrapper--1 {
   background: url(../../images/m-1-m.png) no-repeat;

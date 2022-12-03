@@ -16,12 +16,16 @@ $(document).ready(function (e) {
     let path = e.path || (e.composedPath && e.composedPath());
     if (!path.some(el => el === document.querySelector('.header__top__left'))) {
       $('.header').removeClass('header--opened');
+      $('.header').addClass('header--op-08');
+
       window.removeEventListener('click', closeHeaderIfClickOutside)
     }
   }
 
   $('#menu-toggle').on('click', () => {
     $('.header').toggleClass('header--opened');
+    $('.header').toggleClass('header--op-08');
+
     if ($('.header').hasClass('header--opened')) {
       window.addEventListener('click', closeHeaderIfClickOutside);
     }
@@ -39,6 +43,14 @@ $(document).ready(function (e) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const element = entry.target;
+
+            if (!element.classList.contains('promo')) {
+              $('.header').removeClass('header--op-08');
+            } else {
+              $('.header').addClass('header--op-08');
+            }
+
+            
             const indicator = document.querySelector(`.header__list a[href="#${element.querySelector('a.anchor').id}"]`);
 
             if (indicator) {
