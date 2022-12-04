@@ -277,6 +277,7 @@
 }
 
 @mixin button-filled {
+  text-align: center;
   cursor: pointer;
   padding: 16px 8px;
   display: flex;

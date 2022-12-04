@@ -29,8 +29,14 @@ gulp.task('sass', function () {
 gulp.task('sassAndPrefix', function () {
   return gulp.src('./scss/**/style.scss')
     .pipe(sourcemaps.init())
-    .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
-    .pipe(autoPrefixer())
+    .pipe(sass({
+      "sourcemap=none": true,
+      noCache: true,
+      compass: true,
+      lineNumbers: false,
+      outputStyle: 'expanded'
+    }).on('error', sass.logError))
+    .pipe(autoPrefixer(['last 10 versions']))
     .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest('./css'))
 });

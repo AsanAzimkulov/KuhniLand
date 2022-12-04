@@ -16,7 +16,10 @@ $(document).ready(function (e) {
     let path = e.path || (e.composedPath && e.composedPath());
     if (!path.some(el => el === document.querySelector('.header__top__left'))) {
       $('.header').removeClass('header--opened');
-      $('.header').addClass('header--op-08');
+
+      if (window.isPromo) {
+        $('.header').addClass('header--op-08');
+      }
 
       window.removeEventListener('click', closeHeaderIfClickOutside)
     }
@@ -24,7 +27,9 @@ $(document).ready(function (e) {
 
   $('#menu-toggle').on('click', () => {
     $('.header').toggleClass('header--opened');
-    $('.header').toggleClass('header--op-08');
+    if (window.isPromo) {
+      $('.header').toggleClass('header--op-08');
+    }
 
     if ($('.header').hasClass('header--opened')) {
       window.addEventListener('click', closeHeaderIfClickOutside);
@@ -46,11 +51,13 @@ $(document).ready(function (e) {
 
             if (!element.classList.contains('promo')) {
               $('.header').removeClass('header--op-08');
+              window.isPromo = false;
             } else {
               $('.header').addClass('header--op-08');
+              window.isPromo = true;
             }
 
-            
+
             const indicator = document.querySelector(`.header__list a[href="#${element.querySelector('a.anchor')?.id}"]`);
 
             if (indicator) {
