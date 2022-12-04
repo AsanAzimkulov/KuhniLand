@@ -321,13 +321,13 @@ function setLink(formData) {
   fileName.remove(formatDimension())
 
   const css = `.calc-modal__wrapper--extras {
-    background: url(../../images/${fileName.value}-m.png) no-repeat;
+    background: url(../../images/calc-modal-bgs/${fileName.value}-m.png) no-repeat;
     background-position: center;
     background-size: cover;
   }
   @supports (gap: 1px) {
     .calc-modal__wrapper--extras {
-      background: url(../../images/${fileName.value}-m.webp) no-repeat;
+      background: url(../../images/calc-modal-bgs/${fileName.value}-m.webp) no-repeat;
       background-position: center;
       background-size: cover;
     }

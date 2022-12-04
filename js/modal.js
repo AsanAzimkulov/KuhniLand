@@ -100,6 +100,42 @@ const mainModals = document.querySelectorAll('.main-modal');
 
 // Calc modal
 
+
+// On Iphone browser's downbar is overlap content
+
+window.onload = () => {
+  function iOS() {
+    return [
+      'iPad Simulator',
+      'iPhone Simulator',
+      'iPod Simulator',
+      'iPad',
+      'iPhone',
+      'iPod'
+    ].includes(navigator.platform)
+      // iPad on iOS 13 detection
+      || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+  }
+
+  if (window.innerWidth < 768 && iOS()) {
+    const css = '@media (max-width: 768px) {.calc-modal__body {padding-bottom: 100px;}}'
+
+    const style = document.querySelector('head #calc-modal-bg-extras') || document.createElement('style');
+
+    document.head.appendChild(style);
+
+    style.type = 'text/css';
+    style.id = 'calc-modal-bg-extras';
+
+    if (style.styleSheet) {
+      // This is required for IE8 and below.
+      style.styleSheet.cssText = css;
+    } else {
+      style.appendChild(document.createTextNode(css));
+    }
+  }
+}
+
 const calcModal = document.querySelector('.calc-modal');
 const calcModalClose = document.querySelector('.calc-modal__close');
 
