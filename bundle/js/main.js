@@ -101,7 +101,7 @@ function getPricePerMeter(formData) {
 }
 
 function formatByThousands(x) {
-  return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".");
+  return x.toLocaleString().replace(/\s/g, '.');
 }
 
 function roundToNearestThousand(value) {
