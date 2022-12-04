@@ -34,6 +34,10 @@
   overflow-y: hidden;
 }
 
+.js-copytextarea {
+  display: none;
+}
+
 .page {
   overflow-x: hidden;
   scroll-behavior: smooth;

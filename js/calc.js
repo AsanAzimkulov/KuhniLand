@@ -188,7 +188,7 @@ function setImage(formData) {
 
 
 
-function setPdf(fileName) {
+function setPdf(fileName, formData) {
   /* Helper function */
   function download_file(fileURL, fileName) {
     // for non-IE
@@ -226,6 +226,33 @@ function setPdf(fileName) {
   const url = './pdf/' + fileName + '.pdf';
 
   downloadBtn.onclick = () => download_file(url, fileName + '.pdf');
+
+
+  if (window.innerWidth <= 1024) {
+    const shareData = {
+      title: 'Гриль кухня из' + formatKitchenName(formData.get(formFields.material)),
+      text: '',
+      url: url
+    }
+
+    const btn = document.querySelector('button');
+
+    shareBtn.addEventListener('click', async () => {
+      try {
+        await navigator.share(shareData);
+        alert('Успешно отправлено')
+      } catch (err) {
+
+        const copyTextarea = document.querySelector('.js-copytextarea');
+        copyTextarea.focus();
+        copyTextarea.select();
+        const successful = document.execCommand('copy');
+
+        resultPara.textContent = 'Произошла ошибка, ссылка на pdf-файл была скопирована в буфер обмена';
+
+      }
+    });
+  }
 }
 
 
@@ -289,7 +316,7 @@ function setLink(formData) {
   }
 
 
-  setPdf(fileName.value);
+  setPdf(fileName.value, formData);
 
   fileName.remove(formatDimension())
 
