@@ -248,7 +248,7 @@ function setPdf(fileName, formData) {
         copyTextarea.select();
         const successful = document.execCommand('copy');
 
-        resultPara.textContent = 'Произошла ошибка, ссылка на pdf-файл была скопирована в буфер обмена';
+        alert('Произошла ошибка, ссылка на pdf-файл была скопирована в буфер обмена');
 
       }
     });

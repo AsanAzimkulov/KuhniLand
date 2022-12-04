@@ -51,7 +51,7 @@ $(document).ready(function (e) {
             }
 
             
-            const indicator = document.querySelector(`.header__list a[href="#${element.querySelector('a.anchor').id}"]`);
+            const indicator = document.querySelector(`.header__list a[href="#${element.querySelector('a.anchor')?.id}"]`);
 
             if (indicator) {
               document.querySelectorAll('.header__list__item--active').forEach(el => el.classList.remove('header__list__item--active'));

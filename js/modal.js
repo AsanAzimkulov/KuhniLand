@@ -103,7 +103,7 @@ const mainModals = document.querySelectorAll('.main-modal');
 
 // On Iphone browser's downbar is overlap content
 
-window.onload = () => {
+document.querySelector('.calc__form__submit').onclick = () => {
   function iOS() {
     return [
       'iPad Simulator',

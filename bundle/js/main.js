@@ -251,7 +251,7 @@ function setPdf(fileName, formData) {
         copyTextarea.select();
         const successful = document.execCommand('copy');
 
-        resultPara.textContent = 'Произошла ошибка, ссылка на pdf-файл была скопирована в буфер обмена';
+        alert('Произошла ошибка, ссылка на pdf-файл была скопирована в буфер обмена');
 
       }
     });
@@ -503,7 +503,7 @@ $(document).ready(function (e) {
             }
 
             
-            const indicator = document.querySelector(`.header__list a[href="#${element.querySelector('a.anchor').id}"]`);
+            const indicator = document.querySelector(`.header__list a[href="#${element.querySelector('a.anchor')?.id}"]`);
 
             if (indicator) {
               document.querySelectorAll('.header__list__item--active').forEach(el => el.classList.remove('header__list__item--active'));
@@ -673,7 +673,7 @@ const mainModals = document.querySelectorAll('.main-modal');
 
 // On Iphone browser's downbar is overlap content
 
-window.onload = () => {
+document.querySelector('.calc__form__submit').onclick = () => {
   function iOS() {
     return [
       'iPad Simulator',
