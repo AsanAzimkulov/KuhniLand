@@ -13,6 +13,7 @@ var minify = require('gulp-minify');
 var uglify = require('gulp-uglify');
 const javascriptObfuscator = require('gulp-javascript-obfuscator');
 var fs = require('fs');
+const autoPrefixer = require('gulp-autoprefixer');
 
 
 gulp.task('sass', function () {
@@ -22,6 +23,16 @@ gulp.task('sass', function () {
     .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest('./css'))
     .pipe(browserSync.stream());
+});
+
+
+gulp.task('sassAndPrefix', function () {
+  return gulp.src('./scss/**/style.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
+    .pipe(autoPrefixer())
+    .pipe(sourcemaps.write('./maps'))
+    .pipe(gulp.dest('./css'))
 });
 
 // gulp.task('sassBundle', function () {
@@ -168,7 +179,7 @@ gulp.task('serve', gulp.series('sass', 'generateUpperChunk', 'buildOwnScripts', 
 // });
 
 /*sequence for building vendor scripts and styles*/
-gulp.task('bundle', gulp.series('sass', 'generateUpperChunk', 'buildOwnScripts'));
+gulp.task('build', gulp.series('sassAndPrefix', 'generateUpperChunk', 'buildOwnScripts'));
 
 // gulp.task('deployBuild', gulp.series('clean:vendors', 'buildVendorScripts', 'sassBundle', 'copyAddonsStyles', 'buildVendorStyles', 'renameFont', 'generateUpperChunk', 'buildOwnScripts', 'minifyJsBundles', 'deployClean'));
 

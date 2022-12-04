@@ -224,13 +224,16 @@ function setPdf(fileName, formData) {
   const shareBtn = calculationModal.querySelector('#calc-modal-share');
 
   const url = './pdf/' + fileName + '.pdf';
+  window.pdfUrl = window.location.origin + url.substr(1);
 
   downloadBtn.onclick = () => download_file(url, fileName + '.pdf');
 
+  window.pdfTitle = 'Гриль кухня из ' + formatKitchenName(formData.get(formFields.material));
 
-  if (window.innerWidth <= 1024) {
+
+  if (window.innerWidth < 1024) {
     const shareData = {
-      title: 'Гриль кухня из' + formatKitchenName(formData.get(formFields.material)),
+      title: window.pdfTitle,
       text: '',
       url: url
     }
@@ -240,16 +243,11 @@ function setPdf(fileName, formData) {
     shareBtn.addEventListener('click', async () => {
       try {
         await navigator.share(shareData);
-        alert('Успешно отправлено')
       } catch (err) {
-
         const copyTextarea = document.querySelector('.js-copytextarea');
         copyTextarea.focus();
         copyTextarea.select();
         const successful = document.execCommand('copy');
-
-        alert('Произошла ошибка, ссылка на pdf-файл была скопирована в буфер обмена');
-
       }
     });
   }
@@ -410,5 +408,6 @@ function onCalc(e) {
 
   setLink(formData);
 }
+
 
 

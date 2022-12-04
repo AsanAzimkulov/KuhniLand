@@ -153,3 +153,58 @@ calcModalClose.addEventListener('click', () => {
   onCloseModal(empty, calcModal);
   calcModal.classList.remove('calc-modal--opened')
 })
+
+
+if (window.innerWidth >= 1024) {
+
+  const calcShareModal = document.querySelector('.calc-modal__share');
+  const calcShareModalBody = calcShareModal.querySelector('.calc-modal__share__body');
+  const shareBtn = document.querySelector('#calc-modal-share')
+
+  const copyBtn = calcShareModalBody.querySelector('.calc-modal__share__copy__button');
+  const copyInput = calcShareModalBody.querySelector('.calc-modal__share__copy__input');
+
+  const calcModalShareSocials = document.querySelector('#calc-modal-share-socials');
+  const calcModalShareNotification = document.querySelector('#calc-modal-share-notification');
+
+
+  const closeSharePopupIfNeed = (e) => closeModalIfClickOutside(e, () => {
+    calcShareModal.classList.remove('calc-modal__share--opened')
+    document.title = document.previousTitle;
+  }, calcShareModalBody);
+
+  shareBtn.addEventListener('click', (e) => {
+    document.previousTitle = document.title;
+    document.title = window.pdfTitle;
+
+    const share = Ya.share2(calcModalShareSocials, {
+      content: {
+        url: window.pdfUrl,
+        title: window.pdfTitle
+      }
+    });
+
+    calcModalShareSocials.dataset.url = copyInput.value = window.pdfUrl;
+    calcModalShareNotification.textContent = '';
+
+    onOpenModal(closeSharePopupIfNeed, calcShareModal);
+    calcShareModal.classList.add('calc-modal__share--opened');
+  })
+
+
+  copyBtn.addEventListener('click', () => {
+    copyInput.focus();
+    copyInput.select();
+
+    const successful = document.execCommand('copy');
+
+    if (successful) {
+      calcModalShareNotification.textContent = 'Успешно скопировано';
+    };
+
+    setTimeout(() => {
+      calcShareModal.dispatchEvent(new Event('click', { bubbles: true }));
+    }, 1200)
+
+  })
+}

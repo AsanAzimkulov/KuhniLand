@@ -227,13 +227,16 @@ function setPdf(fileName, formData) {
   const shareBtn = calculationModal.querySelector('#calc-modal-share');
 
   const url = './pdf/' + fileName + '.pdf';
+  window.pdfUrl = window.location.origin + url.substr(1);
 
   downloadBtn.onclick = () => download_file(url, fileName + '.pdf');
 
+  window.pdfTitle = 'Гриль кухня из ' + formatKitchenName(formData.get(formFields.material));
 
-  if (window.innerWidth <= 1024) {
+
+  if (window.innerWidth < 1024) {
     const shareData = {
-      title: 'Гриль кухня из' + formatKitchenName(formData.get(formFields.material)),
+      title: window.pdfTitle,
       text: '',
       url: url
     }
@@ -243,16 +246,11 @@ function setPdf(fileName, formData) {
     shareBtn.addEventListener('click', async () => {
       try {
         await navigator.share(shareData);
-        alert('Успешно отправлено')
       } catch (err) {
-
         const copyTextarea = document.querySelector('.js-copytextarea');
         copyTextarea.focus();
         copyTextarea.select();
         const successful = document.execCommand('copy');
-
-        alert('Произошла ошибка, ссылка на pdf-файл была скопирована в буфер обмена');
-
       }
     });
   }
@@ -413,6 +411,7 @@ function onCalc(e) {
 
   setLink(formData);
 }
+
 
 
 
@@ -723,6 +722,61 @@ calcModalClose.addEventListener('click', () => {
   onCloseModal(empty, calcModal);
   calcModal.classList.remove('calc-modal--opened')
 })
+
+
+if (window.innerWidth >= 1024) {
+
+  const calcShareModal = document.querySelector('.calc-modal__share');
+  const calcShareModalBody = calcShareModal.querySelector('.calc-modal__share__body');
+  const shareBtn = document.querySelector('#calc-modal-share')
+
+  const copyBtn = calcShareModalBody.querySelector('.calc-modal__share__copy__button');
+  const copyInput = calcShareModalBody.querySelector('.calc-modal__share__copy__input');
+
+  const calcModalShareSocials = document.querySelector('#calc-modal-share-socials');
+  const calcModalShareNotification = document.querySelector('#calc-modal-share-notification');
+
+
+  const closeSharePopupIfNeed = (e) => closeModalIfClickOutside(e, () => {
+    calcShareModal.classList.remove('calc-modal__share--opened')
+    document.title = document.previousTitle;
+  }, calcShareModalBody);
+
+  shareBtn.addEventListener('click', (e) => {
+    document.previousTitle = document.title;
+    document.title = window.pdfTitle;
+
+    const share = Ya.share2(calcModalShareSocials, {
+      content: {
+        url: window.pdfUrl,
+        title: window.pdfTitle
+      }
+    });
+
+    calcModalShareSocials.dataset.url = copyInput.value = window.pdfUrl;
+    calcModalShareNotification.textContent = '';
+
+    onOpenModal(closeSharePopupIfNeed, calcShareModal);
+    calcShareModal.classList.add('calc-modal__share--opened');
+  })
+
+
+  copyBtn.addEventListener('click', () => {
+    copyInput.focus();
+    copyInput.select();
+
+    const successful = document.execCommand('copy');
+
+    if (successful) {
+      calcModalShareNotification.textContent = 'Успешно скопировано';
+    };
+
+    setTimeout(() => {
+      calcShareModal.dispatchEvent(new Event('click', { bubbles: true }));
+    }, 1200)
+
+  })
+}
 $('a[href="#"]').on('click', (e) => e.preventDefault())
 
 const player = new Plyr('#player');
