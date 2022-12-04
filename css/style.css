@@ -3219,6 +3219,7 @@
   left: 0;
 }
 .faq__list__item {
+  cursor: pointer;
   position: relative;
   z-index: 1;
   background: #FBFBFB;
@@ -4888,47 +4889,6 @@
   position: relative;
   left: 0;
   top: 0;
-}
-
-.calc-modal__wrapper--extras {
-  background: url(../../images/m-1-m.png) no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-@supports (gap: 1px) {
-  .calc-modal__wrapper--extras {
-    background: url(../../images/m-1-m.webp) no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-}
-@media (min-width: 768px) {
-  .calc-modal__wrapper--extras {
-    background: url(../../images/m-1-t.png) no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-  @supports (gap: 1px) {
-    .calc-modal__wrapper--extras {
-      background: url(../../images/m-1-t.webp) no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-  }
-}
-@media (min-width: 1440px) {
-  .calc-modal__wrapper--extras {
-    background: url(../../images/m-1.png) no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-  @supports (gap: 1px) {
-    .calc-modal__wrapper--extras {
-      background: url(../../images/m-1.webp) no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-  }
 }
 .calc-modal__wrapper--1 {
   background: url(../../images/m-1-m.png) no-repeat;

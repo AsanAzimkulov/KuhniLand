@@ -143,13 +143,93 @@ class FileNameBuilder {
 
   remove(value) {
     this.value = this.value.replace(value, '').replace(this.separator + this.separator, this.separator);
+    if (this.value[0] === this.separator) this.value = this.value.substr(1);
+    if (this.value[this.value.length - 1] === this.separator) this.value = this.value.slice(0, -1);
   }
 
 }
 
-function setLink(formData) {
+function setImage(formData) {
+  const calculationModalWrapper = calculationModal.querySelector('.calc-modal__wrapper');
+
+  function setClass(className, flag) {
+    calculationModalWrapper.classList.toggle(className, flag);
+  }
+
+  ['calc-modal__wrapper--1', 'calc-modal__wrapper--2', 'calc-modal__wrapper--3', 'calc-modal__wrapper--4', 'calc-modal__wrapper--extras'].forEach(className => calculationModalWrapper.classList.remove(className))
+
+  const material = formData.get(formFields.material),
+    installation = formData.get(formFields.installation),
+    configuration = formData.get(formFields.configuration);
+
+  if (material === formValues[formFields.material].steel && installation === formValues[formFields.installation].inside && configuration === formValues[formFields.configuration].uShaped) {
+    setClass('calc-modal__wrapper--4', true);
+    return;
+  }
+
+  if (material === formValues[formFields.material].composit && installation === formValues[formFields.installation].inside && configuration === formValues[formFields.configuration].straight) {
+    setClass('calc-modal__wrapper--3', true);
+    return;
+  }
+
+  if (material === formValues[formFields.material].composit && installation === formValues[formFields.installation].inside && configuration === formValues[formFields.configuration].uShaped) {
+    setClass('calc-modal__wrapper--2', true);
+    return;
+  }
+  if (material === formValues[formFields.material].composit && installation === formValues[formFields.installation].inside && configuration === formValues[formFields.configuration].withIsland) {
+    setClass('calc-modal__wrapper--1', true);
+    return;
+  }
+
+
+  setClass('calc-modal__wrapper--extras', true);
+}
+
+
+
+
+function setPdf(fileName) {
+  /* Helper function */
+  function download_file(fileURL, fileName) {
+    // for non-IE
+    if (!window.ActiveXObject) {
+      var save = document.createElement('a');
+      save.href = fileURL;
+      save.target = '_blank';
+      var filename = fileURL.substring(fileURL.lastIndexOf('/') + 1);
+      save.download = fileName || filename;
+      if (navigator.userAgent.toLowerCase().match(/(ipad|iphone|safari)/) && navigator.userAgent.search("Chrome") < 0) {
+        document.location = save.href;
+        // window event not working here
+      } else {
+        var evt = new MouseEvent('click', {
+          'view': window,
+          'bubbles': true,
+          'cancelable': false
+        });
+        save.dispatchEvent(evt);
+        (window.URL || window.webkitURL).revokeObjectURL(save.href);
+      }
+    }
+
+    // for IE < 11
+    else if (!!window.ActiveXObject && document.execCommand) {
+      var _window = window.open(fileURL, '_blank');
+      _window.document.close();
+      _window.document.execCommand('SaveAs', true, fileName || fileURL)
+      _window.close();
+    }
+  }
   const downloadBtn = calculationModal.querySelector('#calc-modal-installation-button');
   const shareBtn = calculationModal.querySelector('#calc-modal-share');
+
+  const url = './pdf/' + fileName + '.pdf';
+
+  downloadBtn.onclick = () => download_file(url, fileName + '.pdf');
+}
+
+
+function setLink(formData) {
 
   const terms = {
     base: 'grill-kuhnya',
@@ -209,6 +289,10 @@ function setLink(formData) {
   }
 
 
+  setPdf(fileName.value);
+
+  fileName.remove(formatDimension())
+
   const css = `.calc-modal__wrapper--extras {
     background: url(../../images/${fileName.value}-m.png) no-repeat;
     background-position: center;
@@ -223,13 +307,13 @@ function setLink(formData) {
   }
   @media (min-width: 768px) {
     .calc-modal__wrapper--extras {
-      background: url(../../images/${fileName.value}-t.png) no-repeat;
+      background: url(../../images/calc-modal-bgs/${fileName.value}-t.png) no-repeat;
       background-position: center;
       background-size: cover;
     }
     @supports (gap: 1px) {
       .calc-modal__wrapper--extras {
-        background: url(../../images/${fileName.value}-t.webp) no-repeat;
+        background: url(../../images/calc-modal-bgs/${fileName.value}-t.webp) no-repeat;
         background-position: center;
         background-size: cover;
       }
@@ -237,13 +321,13 @@ function setLink(formData) {
   }
   @media (min-width: 1440px) {
     .calc-modal__wrapper--extras {
-      background: url(../../images/${fileName.value}.png) no-repeat;
+      background: url(../../images/calc-modal-bgs/${fileName.value}.png) no-repeat;
       background-position: center;
       background-size: cover;
     }
     @supports (gap: 1px) {
       .calc-modal__wrapper--extras {
-        background: url(../../images/${fileName.value}.webp) no-repeat;
+        background: url(../../images/calc-modal-bgs/${fileName.value}.webp) no-repeat;
         background-position: center;
         background-size: cover;
       }
@@ -264,6 +348,7 @@ function setLink(formData) {
     style.appendChild(document.createTextNode(css));
   }
 
+  setImage(formData);
 }
 
 form.addEventListener('submit', onCalc);

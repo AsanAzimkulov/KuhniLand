@@ -15,37 +15,6 @@
   &__wrapper {
     position: relative;
     min-height: 100vh;
-    &--extras {
-      background: url(../../images/m-1-m.png) no-repeat;
-      background-position: center;
-      background-size: cover;
-      @supports (gap: 1px) {
-      background: url(../../images/m-1-m.webp) no-repeat;
-      background-position: center;
-      background-size: cover;
-      }
-      @media(min-width: 768px){
-        background: url(../../images/m-1-t.png) no-repeat;
-        background-position: center;
-        background-size: cover;
-        @supports (gap: 1px) {
-        background: url(../../images/m-1-t.webp) no-repeat;
-        background-position: center;
-        background-size: cover;
-        }
-      }
-
-      @media(min-width: 1440px){
-        background: url(../../images/m-1.png) no-repeat;
-        background-position: center;
-        background-size: cover;
-        @supports (gap: 1px) {
-        background: url(../../images/m-1.webp) no-repeat;
-        background-position: center;
-        background-size: cover;
-        }
-      }
-    }
     &--1{
       background: url(../../images/m-1-m.png) no-repeat;
       background-position: center;
