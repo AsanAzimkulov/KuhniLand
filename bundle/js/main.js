@@ -559,12 +559,88 @@ $(document).ready(function (e) {
 // Always show mask 
 
 
+class InputPhoneRus {
+  constructor(input) {
+    this.element = input;
+    this.form = this.element.closest('form');
+    this.selectionStart = 1;
+    this.init();
+  }
+
+  init() {
+    const element = this.element;
+
+
+    function getOnlyNumbers(value) {
+      return value.split('').filter((char) => {
+        if (typeof +char === 'number' && !Number.isNaN(+char) && char !== ' ') return true;
+      }).join('');
+    }
+
+    function paste(value) {
+      const dataTransfer = new DataTransfer();
+      dataTransfer.setData('text', value);
+      const event = new ClipboardEvent('paste', {
+        clipboardData: dataTransfer,
+        bubbles: true
+      });
+      element.value = value;
+      element.dispatchEvent(event);
+    }
+
+    element.onpaste = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      let value = (e.originalEvent || e).clipboardData.getData('text/plain');
+
+
+
+      if (value.length > 10) {
+        value = getOnlyNumbers(value);
+        value = value.substring(value.length - 10, value.length);
+        paste(value)
+      }
+    }
+
+    element.oninput = (e) => this.selectionStart = e.target.selectionStart;
+
+    window.addEventListener('keydown', (e) => {
+      console.log(e, this.selectionStart)
+      if (this.selectionStart === 15 && this.element === document.activeElement && typeof +e.key === 'number') {
+        let value = getOnlyNumbers(this.element.value);
+
+        if (value[0] === '7' || value[0] === '8') {
+          console.log(value.substring(1, value.length))
+
+          this.element.value = value.substring(1, value.length) + e.key;
+        }
+      }
+
+    }
+    )
+    this.form.addEventListener('submit', (e) => {
+      const formData = new FormData(this.form);
+      const fieldName = this.element.name;
+
+      formData.set(name, '+7' + formData.get(name))
+    })
+  }
+}
+
+Array.from(document.querySelectorAll('.input-number')).forEach(input => {
+  const newInput = new InputPhoneRus(input);
+})
+
+
 const im = new Inputmask('(999) 999-99-99');
 
 im.opts.clearMaskOnLostFocus = false;
 im.opts.placeholder = "5"
 
 im.mask('.input-number');
+
+
 
 const forms = document.querySelectorAll('.m-call__form');
 

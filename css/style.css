@@ -1438,7 +1438,7 @@
     background-position-x: -0.5px;
   }
   .project__list__item {
-    padding: 40px 0 !important;
+    padding: 40px 0 0 0 !important;
     width: 30.6%;
     margin-bottom: 80px;
   }
@@ -3308,8 +3308,9 @@
   font-size: 14px;
   line-height: 130%;
   color: #747474;
-  height: 0;
   overflow: hidden;
+  max-height: 0;
+  transition: 0.6s ease;
 }
 @media (min-width: 1440px) {
   .faq__list__item__description {
@@ -3318,7 +3319,7 @@
   }
 }
 .faq__list__item--active .faq__list__item__description {
-  height: auto;
+  max-height: fit-content;
   padding-bottom: 20px;
 }
 .faq__list__item--active .faq__list__item__button {
