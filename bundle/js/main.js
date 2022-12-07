@@ -1009,10 +1009,6 @@ $('.widgets .calculate').on('mouseleave', () => {
 })
 
 
-// Forward to jivo cb buttons
-
-$('#start-call').on('click', () => jivo_api.open({ start: 'call' }));
-$('#start-chat').on('click', () => jivo_api.open({ start: 'chat' }));
 
 
 
