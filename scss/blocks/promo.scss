@@ -136,6 +136,10 @@
       background-size: cover;
       }
     }
+    &__text{
+      transform: translateX(-150px);
+
+    }
   }
 
   @media(min-width: 1440px){

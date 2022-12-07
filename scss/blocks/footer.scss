@@ -48,6 +48,9 @@
       &__item {
         @include item-spacing(12px);
         @include light-text;
+        &:hover{
+          color: rgba($white, 0.3);
+        }
       }
     }
   }

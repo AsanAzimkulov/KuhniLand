@@ -180,7 +180,7 @@
       // background: url(../../../images/bg-lines.svg) no-repeat;
       background-position-x: -0.5px;
       &__item{
-        padding: 40px 0;
+        padding: 40px 0 !important;
         width: 30.6%;
         margin-bottom: 80px;
         &:nth-child(1) {

@@ -21,7 +21,7 @@ document.addEventListener('mousemove', (evt) => {
 
 })
 
-$('.widgets').on('mouseleave', function (e)  {
+$('.widgets').on('mouseleave', function (e) {
   $(this).removeClass('widgets--hover')
 })
 
@@ -41,3 +41,11 @@ $('.widgets').on('mouseleave', () => {
 $('.widgets .calculate').on('mouseleave', () => {
   $('.widgets .calculate').removeClass('calculate--visible');
 })
+
+
+// Forward to jivo cb buttons
+
+$('#start-call').on('click', () => jivo_api.open({ start: 'call' }));
+$('#start-chat').on('click', () => jivo_api.open({ start: 'chat' }));
+
+

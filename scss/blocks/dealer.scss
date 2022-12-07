@@ -67,6 +67,11 @@
     &__title{
       margin-bottom: 60px;
     }
+    &__item{
+      &::after{
+        content: normal;
+      }
+    }
     .slider{
       padding: 0 40px;
       &__item{

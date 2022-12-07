@@ -256,6 +256,10 @@
           width: 100%;
           order: 4;
           display: flex;
+          justify-content: flex-start;
+          &>div{
+            @include item-spacing-gor(40px);
+          }
         }
       }
 
