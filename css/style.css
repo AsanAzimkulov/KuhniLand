@@ -720,9 +720,6 @@
       background-size: cover;
     }
   }
-  .promo__text {
-    transform: translateX(-150px);
-  }
 }
 @media (min-width: 1440px) {
   .promo {
@@ -739,7 +736,7 @@
   }
   .promo__wrapper {
     min-height: 837px;
-    padding-top: 228px;
+    padding-top: 207px;
     margin: 0 auto;
     background: none;
   }
@@ -749,7 +746,7 @@
   .promo__text {
     padding: 40px;
     width: fit-content;
-    transform: translateX(-106px);
+    transform: translateX(-89px);
   }
   .promo__title {
     margin-bottom: 50px;
@@ -797,6 +794,14 @@
     width: 32px;
     height: 32px;
     margin-right: 14.67px;
+  }
+}
+@media (min-width: 1920px) {
+  .promo__wrapper {
+    padding-top: 281px;
+  }
+  .promo__text {
+    margin-left: 93px;
   }
 }
 

@@ -136,10 +136,6 @@
       background-size: cover;
       }
     }
-    &__text{
-      transform: translateX(-150px);
-
-    }
   }
 
   @media(min-width: 1440px){
@@ -154,7 +150,7 @@
 
     &__wrapper{
       min-height: 837px;
-      padding-top: 228px;
+      padding-top: 207px;
       margin: 0 auto;
       background: none;
     }
@@ -164,7 +160,7 @@
   &__text{
     padding: 40px;
     width: fit-content;
-    transform: translateX(-106px);
+    transform: translateX(-89px);
 
   }
   &__title{
@@ -223,6 +219,16 @@
           }
         }
       }
+    }
+  }
+
+
+  @media(min-width: 1920px){
+    &__wrapper{
+      padding-top: 281px;
+    }
+    &__text{
+      margin-left: 93px;
     }
   }
 }
