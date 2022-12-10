@@ -51,13 +51,18 @@
         align-items: center;
         justify-content: flex-end;
         position: relative;
+        margin-left: auto;
         @include item-spacing(20px);
+        a {
+          display: flex;
+          align-items: center;
+        }
         &:hover{
-          span{
+          p{
             color: $vinous
           }
         }
-        span {
+        p {
           white-space: nowrap;
           font-family: 'Montserrat';
           font-style: normal;
@@ -65,7 +70,6 @@
           font-size: 14px;
           line-height: 17px;
           color: $darkGrey;
-          position: absolute;
           right: calc(100%);
         }
         &__link {
@@ -178,7 +182,7 @@
             width: 24px;
             height: 24px;
           }
-          span{
+          p{
             font-size: 16px;
             line-height: 20px;
           }

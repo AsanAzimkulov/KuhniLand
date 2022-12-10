@@ -93,6 +93,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    display: flex;
+    &--telegram{
+      display: none;
+    }
 
     img {
       width: 18.33px;
@@ -297,6 +301,10 @@
     &__call{
       order: 3;
       margin-right: 0 !important;
+      display: none;
+      &--telegram{
+        display: flex;
+      }
       img {
         display: none;
         &:last-child{

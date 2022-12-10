@@ -33,8 +33,14 @@
           <div class="header__top__right">
             <a href="tel: +84951252149" class="header__number">+8 (495) 125-21-49</a>
             <a href="#" class="header__request-call m-call-request" data-contact-way="1">Заказать звонок</a>
-            <a href="https://t.me/+79252117234" target="_blank" class="header__call" data-contact-way="2"><img
-                src="./images/icons/phone.svg" alt="Телеграм"><img src="./images/icons/telegram.svg" alt="Телеграм"></a>
+
+            <a href="#" class="header__call m-call-request" data-contact-way="1"><img src="./images/icons/phone.svg"
+                alt="Заказать звонок"><img src="./images/icons/telegram.svg"></a>
+
+            <a href="https://t.me/+79252117234" target="_blank" class="header__call header__call--telegram"
+              data-contact-way="2"><img src="./images/icons/phone.svg" alt="Телеграм"><img
+                src="./images/icons/telegram.svg" alt="Телеграм"></a>
+
             <a href="https://wa.me/+79252117234" target="_blank" class="header__whatsapp" data-contact-way="3"><img
                 src="./images/icons/whatsapp.svg" alt="Вотсап"></a>
           </div>
@@ -90,16 +96,22 @@
   <aside class="widgets">
     <div class="contact">
       <ul class="contact__list">
-        <li class="contact__list__item"><a href="https://wa.me/+79252117234" target="_blank"
-            class="contact__list__item__link widgets__button" data-contact-way="3"><img
-              src="./images/icons/whatsapp.svg" alt="Вотсап" class="contact list__item__icon"></a></li>
-        <li class="contact__list__item"><a href="https://t.me/+79252117234" target="_blank"
-            class="contact__list__item__link widgets__button" data-contact-way="2"><img
-              src="./images/icons/telegram.svg" alt="Телеграм" class="contact list__item__icon"></a></li>
-        <li class="contact__list__item"><span>Начать
-            чат</span><a href="javascript:jivo_api.open({start : 'chat'})"
+        <li class="contact__list__item"><a href="https://wa.me/+79252117234" target="_blank">
+            <p>Whatsapp</p>
+            <div class="contact__list__item__link widgets__button" data-contact-way="3"><img
+                src="./images/icons/whatsapp.svg" alt="Вотсап" class="contact list__item__icon"></div>
+          </a></li>
+        <li class="contact__list__item"><a href="https://t.me/+79252117234" target="_blank">
+            <p>Telegram</p>
+            <div class="contact__list__item__link widgets__button" data-contact-way="2"><img
+                src="./images/icons/telegram.svg" alt="Телеграм" class="contact list__item__icon"></div>
+          </a></li>
+        <li class="contact__list__item">
+          <p>Начать
+            чат</p><a href="javascript:jivo_api.open({start : 'chat'})"
             class="contact__list__item__link widgets__button" data-contact-way="1" id="start-chat"><img
-              src="./images/icons/headphones.svg" alt="Наушники с микрофоном" class="contact list__item__icon"></a></li>
+              src="./images/icons/headphones.svg" alt="Наушники с микрофоном" class="contact list__item__icon"></a>
+        </li>
       </ul>
       <div class="contact__main">
         <div class="contact__text__wrapper">
@@ -1713,6 +1725,15 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    const callWidget = document.querySelector('.widgets .contact');
+
+    const MSCHours = new Date().getUTCHours() + 3;
+    if (10 <= MSCHours <= 22) return;
+
+    callWidget.style.display = 'none';
+  </script>
 
   <script src="https://yastatic.net/share2/share.js"></script>
   <script src="main.js"></script>

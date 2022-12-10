@@ -153,6 +153,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  display: flex;
+}
+.header__call--telegram {
+  display: none;
 }
 .header__call img {
   width: 18.33px;
@@ -363,6 +367,10 @@
   .header__call {
     order: 3;
     margin-right: 0 !important;
+    display: none;
+  }
+  .header__call--telegram {
+    display: flex;
   }
   .header__call img {
     display: none;
@@ -863,15 +871,20 @@
   align-items: center;
   justify-content: flex-end;
   position: relative;
+  margin-left: auto;
   margin-bottom: 20px;
 }
 .widgets .contact__list__item:last-of-type {
   margin-bottom: 0;
 }
-.widgets .contact__list__item:hover span {
+.widgets .contact__list__item a {
+  display: flex;
+  align-items: center;
+}
+.widgets .contact__list__item:hover p {
   color: #621F2A;
 }
-.widgets .contact__list__item span {
+.widgets .contact__list__item p {
   white-space: nowrap;
   font-family: "Montserrat";
   font-style: normal;
@@ -879,7 +892,6 @@
   font-size: 14px;
   line-height: 17px;
   color: #373E46;
-  position: absolute;
   right: 100%;
 }
 .widgets .contact__list__item__link img {
@@ -963,7 +975,7 @@
     width: 24px;
     height: 24px;
   }
-  .widgets .contact__list__item span {
+  .widgets .contact__list__item p {
     font-size: 16px;
     line-height: 20px;
   }
@@ -1689,9 +1701,17 @@
 }
 .stages .slider {
   min-height: 535px;
+  height: 100%;
 }
 .stages .slider__items {
   transition: none;
+}
+.stages .slider__item .stages__item__title, .stages .slider__item .stages__item__text {
+  opacity: 0;
+  transition: opacity 600ms ease;
+}
+.stages .slider__item_active .stages__item__title, .stages .slider__item_active .stages__item__text {
+  opacity: 1;
 }
 .stages .slider__control {
   z-index: 2;
@@ -1910,6 +1930,7 @@
   }
   .stages__slider-wrapper {
     min-height: 447px;
+    height: 447px;
   }
   .stages .slider {
     min-height: 447px;
@@ -1918,6 +1939,8 @@
     padding: 0 1px;
   }
   .stages .slider__control {
+    background: url(../../images/icons/slider-next.svg) no-repeat !important;
+    background-size: 40px 200px !important;
     background-position-y: 123.5px !important;
   }
   .stages__item {
@@ -2285,7 +2308,7 @@
 @media (min-width: 1920px) {
   .calc__picture {
     width: 27.77%;
-    min-height: 564px;
+    min-height: 540px;
   }
   .calc__form {
     width: 72.22%;

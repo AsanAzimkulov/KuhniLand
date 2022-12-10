@@ -30,6 +30,7 @@ $('.widgets .contact__main .widgets__button').hover(() => {
   $('.widgets .contact').addClass('contact--visible');
 })
 
+
 $('.widgets .calculate .widgets__button').hover(() => {
   $('.widgets .calculate').addClass('calculate--visible');
 })
