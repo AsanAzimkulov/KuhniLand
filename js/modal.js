@@ -95,7 +95,7 @@ const mainModals = document.querySelectorAll('.main-modal');
         // Review modal
         [...modal.querySelectorAll('.main-modal__text'), ...modal.querySelectorAll('.main-modal__subtitle'), ...modal.querySelectorAll('.main-modal__date')].forEach(el => el.remove());
 
-        const content = trigger.closest('.reviews__item').querySelector('.reviews__item__modal-content');
+        const content = trigger.closest('.reviews__item').querySelector('.reviews__item__modal-content').cloneNode(true);
 
         Array.from(content.children).forEach(contentElement => mainModalBody.append(contentElement));
 

@@ -57,6 +57,9 @@
     top: -150px;
   }
 }
+.page__body .faq {
+  margin-top: 0;
+}
 @media (min-width: 1440px) {
   .page .no-scroll-y .widgets {
     right: 36.5px;
@@ -316,6 +319,9 @@
     padding: 12px 32px !important;
     font-size: 12px;
     line-height: 15px;
+  }
+  .header__request-call:disabled {
+    background: #373E46 !important;
   }
   .header__request-call:hover {
     background: #822736;
@@ -1071,7 +1077,7 @@
   }
   .advantages__list__item {
     width: 31.39%;
-    padding: 20px 20px 40px;
+    padding: 20px;
     margin-bottom: 0;
   }
 }
@@ -1387,6 +1393,9 @@
   max-width: 280px;
   margin: 0 auto;
 }
+.project__button:disabled {
+  background: #373E46 !important;
+}
 .project__button:hover {
   background: #822736;
 }
@@ -1417,7 +1426,7 @@
     max-width: fit-content;
   }
   .project__list__item__title {
-    margin: 20px 0;
+    margin: 30px 0 20px;
   }
   .project__list__item:nth-child(1) .project__ball {
     bottom: 39px;
@@ -1443,7 +1452,7 @@
     background-position-x: -0.5px;
   }
   .project__list__item {
-    padding: 40px 0 0 0 !important;
+    padding: 0 !important;
     width: 30.6%;
     margin-bottom: 80px;
   }
@@ -1486,6 +1495,9 @@
     color: #621F2A;
     filter: drop-shadow(0px 4px 12px rgba(98, 31, 42, 0.2));
   }
+  .project__button:disabled {
+    background: #373E46 !important;
+  }
   .project__button:hover {
     background: #822736;
   }
@@ -1517,6 +1529,10 @@
   .project__list__item {
     padding: 105px 0 156px;
     width: 28.47%;
+  }
+  .project__list__item__description, .project__list__item__title, .project__list__item__link {
+    padding-right: 20px;
+    padding-left: 20px;
   }
 }
 
@@ -1809,7 +1825,7 @@
   .stages__item {
     width: 76.2%;
     margin-left: auto;
-    min-height: 562px;
+    min-height: 522px;
     border-radius: 0px 20px 20px 0px;
     padding: 40px;
     position: relative;
@@ -1826,7 +1842,7 @@
     flex-shrink: 0;
   }
   .stages .slider {
-    min-height: 562px;
+    min-height: 522px;
   }
   .stages .slider::before {
     pointer-events: none;
@@ -1876,7 +1892,7 @@
     right: 0px;
   }
   .stages__slider-wrapper {
-    min-height: 562px;
+    height: 522px;
     background-size: calc(100% + 20px) calc(100% + 20px) !important;
     background-position: center center;
   }
@@ -2038,6 +2054,9 @@
   width: 100%;
   text-align: center;
 }
+.calc__form__submit:disabled {
+  background: #373E46 !important;
+}
 .calc__form__submit:hover {
   background: #822736;
 }
@@ -2072,6 +2091,9 @@
   border: 2px solid #621F2A;
   color: #621F2A;
   filter: drop-shadow(0px 4px 12px rgba(98, 31, 42, 0.2));
+}
+.calc__form__contact:disabled {
+  background: #373E46 !important;
 }
 .calc__form__contact:hover {
   background: #822736;
@@ -2181,6 +2203,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-bottom: 40px;
   }
   .calc__form__group:last-of-type .calc__form__group__title {
     width: 100%;
@@ -2262,7 +2285,7 @@
 @media (min-width: 1920px) {
   .calc__picture {
     width: 27.77%;
-    min-height: 556px;
+    min-height: 564px;
   }
   .calc__form {
     width: 72.22%;
@@ -2882,7 +2905,7 @@
   }
   .video__label {
     font-size: 200px;
-    margin-top: -100px;
+    margin-top: -120px;
   }
 }
 
@@ -3364,6 +3387,9 @@
   box-shadow: 0px 4px 12px rgba(98, 31, 42, 0.2);
   transition: all 300ms ease-out;
 }
+.faq__down-bar__button:disabled {
+  background: #373E46 !important;
+}
 .faq__down-bar__button:hover {
   background: #822736;
 }
@@ -3428,6 +3454,19 @@
     padding: 0;
     margin: 0;
   }
+  .faq__list__bg {
+    position: relative;
+    background: url(../../images/m-1.png) no-repeat;
+    background-position: center;
+    background-size: auto 100%;
+  }
+  @supports (gap: 1px) {
+    .faq__list__bg {
+      background: url(../../images/m-1.webp) no-repeat;
+      background-position: center;
+      background-size: auto 100%;
+    }
+  }
   .faq__list__wrapper--desctop {
     max-width: 1440px;
     margin: 0 auto;
@@ -3459,6 +3498,12 @@
 }
 .m-call--opened {
   display: block;
+}
+.m-call .ntf {
+  display: none;
+  color: red;
+  font-size: 14px;
+  margin-bottom: 5px;
 }
 .m-call__success {
   display: none;
@@ -3503,7 +3548,7 @@
   border-radius: 20px;
   padding: 40px;
   position: relative;
-  width: 280px;
+  width: calc(100% - 40px);
 }
 .m-call__close {
   cursor: pointer;
@@ -3687,6 +3732,9 @@
   margin-bottom: 12px;
   width: 100%;
 }
+.m-call__form__submit:disabled {
+  background: #373E46 !important;
+}
 .m-call__form__submit:hover {
   background: #822736;
 }
@@ -3710,6 +3758,7 @@
   color: #747474;
   font-weight: 500;
   text-align: center;
+  display: block;
 }
 @media (min-width: 768px) {
   .m-call__form__ps {
@@ -3983,16 +4032,7 @@
 .shops__list__item__picture img {
   transform: scale(1.09);
 }
-.shops__list__item__picture__bg {
-  display: none;
-}
-.shops__list__item__picture:hover .shops__list__item__picture__bg {
-  display: inline;
-}
-.shops__list__item__picture:hover img {
-  display: none;
-}
-.shops__list__item__picture:hover::after {
+.shops__list__item__picture:hover::before {
   position: absolute;
   content: "";
   display: block;
@@ -4001,6 +4041,7 @@
   width: 100%;
   height: 100%;
   background: rgba(55, 62, 70, 0.5);
+  z-index: 1;
 }
 .shops__list__item__title {
   font-family: "Montserrat", sans-serif;
@@ -4042,6 +4083,7 @@
   }
   .shops__list__item {
     width: 31.76%;
+    margin-bottom: 0;
   }
 }
 @media (min-width: 1440px) {
@@ -4126,6 +4168,9 @@
   box-shadow: 0px 4px 12px rgba(98, 31, 42, 0.2);
   transition: all 300ms ease-out;
   margin-bottom: 12px;
+}
+.footer__contact__button:disabled {
+  background: #373E46 !important;
 }
 .footer__contact__button:hover {
   background: #822736;
@@ -4365,6 +4410,9 @@
     line-height: 15px;
     padding: 12px 32px !important;
   }
+  .footer__contact__button:disabled {
+    background: #373E46 !important;
+  }
   .footer__contact__button:hover {
     background: #822736;
   }
@@ -4400,7 +4448,15 @@
   }
   .footer__shops__list__item {
     margin-right: 0;
-    flex: 0 0 auto;
+  }
+  .footer__shops__list__item:nth-child(1) {
+    flex: 0 0 25%;
+  }
+  .footer__shops__list__item:nth-child(2) {
+    flex: 0 0 30%;
+  }
+  .footer__shops__list__item:nth-child(3) {
+    flex: 0 0 40%;
   }
   .footer__shops__list__item br {
     display: block;

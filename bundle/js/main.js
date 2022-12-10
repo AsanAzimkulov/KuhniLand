@@ -465,7 +465,7 @@ $(document).ready(function (e) {
   }
   function closeHeaderIfClickOutside(e) {
     let path = e.path || (e.composedPath && e.composedPath());
-    if (!path.some(el => el === document.querySelector('.header__top__left'))) {
+    if (!path.some(el => el === document.querySelector(window.innerWidth < 768 ? '.header' : '.header__top__left'))) {
       $('.header').removeClass('header--opened');
 
       if (window.isPromo) {
@@ -556,6 +556,7 @@ $(document).ready(function (e) {
 }(jQuery, Inputmask), function (e, t) { function i(e, t) { var i = (e.mask || e).replace(/#/g, "9").replace(/\)/, "9").replace(/[+()#-]/g, ""), a = (t.mask || t).replace(/#/g, "9").replace(/\)/, "9").replace(/[+()#-]/g, ""), n = (e.mask || e).split("#")[0], r = (t.mask || t).split("#")[0]; return 0 === r.indexOf(n) ? -1 : 0 === n.indexOf(r) ? 1 : i.localeCompare(a) } var a = t.prototype.analyseMask; return t.prototype.analyseMask = function (t, i) { function n(e, i, a) { i = i || "", a = a || o, "" !== i && (a[i] = {}); for (var r = "", s = a[i] || a, l = e.length - 1; l >= 0; l--)t = e[l].mask || e[l], r = t.substr(0, 1), s[r] = s[r] || [], s[r].unshift(t.substr(1)), e.splice(l, 1); for (var u in s) s[u].length > 500 && n(s[u].slice(), u, s) } function r(t) { var a = "", n = []; for (var o in t) e.isArray(t[o]) ? 1 === t[o].length ? n.push(o + t[o]) : n.push(o + i.groupmarker.start + t[o].join(i.groupmarker.end + i.alternatormarker + i.groupmarker.start) + i.groupmarker.end) : n.push(o + r(t[o])); return a += 1 === n.length ? n[0] : i.groupmarker.start + n.join(i.groupmarker.end + i.alternatormarker + i.groupmarker.start) + i.groupmarker.end } var o = {}; i.phoneCodes && i.phoneCodes.length > 1e3 && (t = t.substr(1, t.length - 2), n(t.split(i.groupmarker.end + i.alternatormarker + i.groupmarker.start)), t = r(o)); var s = a.call(this, t, i); return s }, t.extendAliases({ abstractphone: { groupmarker: { start: "<", end: ">" }, countrycode: "", phoneCodes: [], mask: function (e) { return e.definitions = { "#": e.definitions[9] }, e.phoneCodes.sort(i) }, keepStatic: !0, onBeforeMask: function (e, t) { var i = e.replace(/^0{1,2}/, "").replace(/[\s]/g, ""); return (i.indexOf(t.countrycode) > 1 || i.indexOf(t.countrycode) === -1) && (i = "+" + t.countrycode + i), i }, onUnMask: function (e, t, i) { return t }, inputmode: "tel" } }), t }(jQuery, Inputmask), function (e, t) { return t.extendAliases({ Regex: { mask: "r", greedy: !1, repeat: "*", regex: null, regexTokens: null, tokenizer: /\[\^?]?(?:[^\\\]]+|\\[\S\s]?)*]?|\\(?:0(?:[0-3][0-7]{0,2}|[4-7][0-7]?)?|[1-9][0-9]*|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}|c[A-Za-z]|[\S\s]?)|\((?:\?[:=!]?)?|(?:[?*+]|\{[0-9]+(?:,[0-9]*)?\})\??|[^.?*+^${[()|\\]+|./g, quantifierFilter: /[0-9]+[^,]/, isComplete: function (e, t) { return new RegExp(t.regex).test(e.join("")) }, definitions: { r: { validator: function (t, i, a, n, r) { function o(e, t) { this.matches = [], this.isGroup = e || !1, this.isQuantifier = t || !1, this.quantifier = { min: 1, max: 1 }, this.repeaterPart = void 0 } function s() { var e, t, i = new o, a = []; for (r.regexTokens = []; e = r.tokenizer.exec(r.regex);)switch (t = e[0], t.charAt(0)) { case "(": a.push(new o(!0)); break; case ")": c = a.pop(), a.length > 0 ? a[a.length - 1].matches.push(c) : i.matches.push(c); break; case "{": case "+": case "*": var n = new o(!1, !0); t = t.replace(/[{}]/g, ""); var s = t.split(","), l = isNaN(s[0]) ? s[0] : parseInt(s[0]), u = 1 === s.length ? l : isNaN(s[1]) ? s[1] : parseInt(s[1]); if (n.quantifier = { min: l, max: u }, a.length > 0) { var p = a[a.length - 1].matches; e = p.pop(), e.isGroup || (c = new o(!0), c.matches.push(e), e = c), p.push(e), p.push(n) } else e = i.matches.pop(), e.isGroup || (c = new o(!0), c.matches.push(e), e = c), i.matches.push(e), i.matches.push(n); break; default: a.length > 0 ? a[a.length - 1].matches.push(t) : i.matches.push(t) }i.matches.length > 0 && r.regexTokens.push(i) } function l(t, i) { var a = !1; i && (d += "(", m++); for (var n = 0; n < t.matches.length; n++) { var r = t.matches[n]; if (r.isGroup === !0) a = l(r, !0); else if (r.isQuantifier === !0) { var o = e.inArray(r, t.matches), s = t.matches[o - 1], c = d; if (isNaN(r.quantifier.max)) { for (; r.repeaterPart && r.repeaterPart !== d && r.repeaterPart.length > d.length && !(a = l(s, !0));); a = a || l(s, !0), a && (r.repeaterPart = d), d = c + r.quantifier.max } else { for (var p = 0, f = r.quantifier.max - 1; p < f && !(a = l(s, !0)); p++); d = c + "{" + r.quantifier.min + "," + r.quantifier.max + "}" } } else if (void 0 !== r.matches) for (var h = 0; h < r.length && !(a = l(r[h], i)); h++); else { var v; if ("[" == r.charAt(0)) { v = d, v += r; for (var g = 0; g < m; g++)v += ")"; var y = new RegExp("^(" + v + ")$"); a = y.test(u) } else for (var k = 0, x = r.length; k < x; k++)if ("\\" !== r.charAt(k)) { v = d, v += r.substr(0, k + 1), v = v.replace(/\|$/, ""); for (var g = 0; g < m; g++)v += ")"; var y = new RegExp("^(" + v + ")$"); if (a = y.test(u)) break } d += r } if (a) break } return i && (d += ")", m--), a } var u, c, p = i.buffer.slice(), d = "", f = !1, m = 0; null === r.regexTokens && s(), p.splice(a, 0, t), u = p.join(""); for (var h = 0; h < r.regexTokens.length; h++) { var v = r.regexTokens[h]; if (f = l(v, v.isGroup)) break } return f }, cardinality: 1 } } } }), t }(jQuery, Inputmask);
 //# sourceMappingURL=jquery.inputmask.bundle.min.js.map
 
+
 // Always show mask 
 
 
@@ -603,15 +604,16 @@ class InputPhoneRus {
       }
     }
 
-    element.oninput = (e) => this.selectionStart = e.target.selectionStart;
+    element.oninput = (e) => {
+      this.selectionStart = e.target.selectionStart
+      element.isDirty = true;
+    };
 
     window.addEventListener('keydown', (e) => {
-      console.log(e, this.selectionStart)
       if (this.selectionStart === 15 && this.element === document.activeElement && typeof +e.key === 'number') {
         let value = getOnlyNumbers(this.element.value);
 
         if (value[0] === '7' || value[0] === '8') {
-          console.log(value.substring(1, value.length))
 
           this.element.value = value.substring(1, value.length) + e.key;
         }
@@ -628,6 +630,7 @@ class InputPhoneRus {
   }
 }
 
+
 Array.from(document.querySelectorAll('.input-number')).forEach(input => {
   const newInput = new InputPhoneRus(input);
 })
@@ -637,8 +640,12 @@ const im = new Inputmask('(999) 999-99-99');
 
 im.opts.clearMaskOnLostFocus = false;
 im.opts.placeholder = "5"
+im.opts.autoUnmask = false;
 
 im.mask('.input-number');
+
+
+
 
 
 
@@ -646,7 +653,16 @@ const forms = document.querySelectorAll('.m-call__form');
 
 function onCallRequest(e) {
   e.preventDefault();
-  document.body.classList.add('call-requested');
+
+  const input = e.target.querySelector('.input-number');
+
+  e.target.addEventListener('submit', (e) => {
+    if (!input.isDirty) {
+      e.target.querySelector('.ntf').style.display = 'block';
+    } else {
+      document.body.classList.add('call-requested');
+    }
+  })
 }
 
 forms.forEach(form => form.addEventListener('submit', onCallRequest));
@@ -747,7 +763,7 @@ const mainModals = document.querySelectorAll('.main-modal');
         // Review modal
         [...modal.querySelectorAll('.main-modal__text'), ...modal.querySelectorAll('.main-modal__subtitle'), ...modal.querySelectorAll('.main-modal__date')].forEach(el => el.remove());
 
-        const content = trigger.closest('.reviews__item').querySelector('.reviews__item__modal-content');
+        const content = trigger.closest('.reviews__item').querySelector('.reviews__item__modal-content').cloneNode(true);
 
         Array.from(content.children).forEach(contentElement => mainModalBody.append(contentElement));
 

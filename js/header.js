@@ -14,7 +14,7 @@ $(document).ready(function (e) {
   }
   function closeHeaderIfClickOutside(e) {
     let path = e.path || (e.composedPath && e.composedPath());
-    if (!path.some(el => el === document.querySelector('.header__top__left'))) {
+    if (!path.some(el => el === document.querySelector(window.innerWidth < 768 ? '.header' : '.header__top__left'))) {
       $('.header').removeClass('header--opened');
 
       if (window.isPromo) {

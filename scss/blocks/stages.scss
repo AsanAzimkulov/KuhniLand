@@ -263,7 +263,7 @@
     &__item{
       width: 76.2%;
       margin-left: auto;
-      min-height: 562px;
+      min-height: 522px;
       border-radius: 0px 20px 20px 0px;
       padding: 40px;
       position: relative;
@@ -284,7 +284,7 @@
     }
 
     .slider{
-      min-height: 562px;
+      min-height: 522px;
 
       &::before{
         pointer-events: none;
@@ -337,7 +337,7 @@
       }
     }
     &__slider-wrapper{
-      min-height: 562px;
+      height: 522px;
       background-size: calc(100% + 20px) calc(100% + 20px) !important;
       background-position: center center;
     }

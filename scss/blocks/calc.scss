@@ -41,7 +41,7 @@
       margin-bottom: 40px;
 
       &:last-of-type {
-        margin-bottom: 60px;
+        margin-bottom:60px;
       }
       &__title{
         @include form-g-title;
@@ -140,6 +140,7 @@
           display: flex;
           justify-content: space-between;
           flex-wrap: wrap;
+          margin-bottom: 40px;
         }
         &:last-of-type &{
           &__title{
@@ -238,7 +239,7 @@
   @media(min-width: 1920px){
     &__picture{
       width: 27.77%;
-      min-height: 556px;
+      min-height: 564px;
     }
 
     &__form{
