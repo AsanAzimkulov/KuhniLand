@@ -77,22 +77,31 @@ class InputPhoneRus {
     };
 
     window.addEventListener('keydown', (e) => {
-      if (this.selectionStart === 15 && this.element === document.activeElement && typeof +e.key === 'number') {
-        let value = getOnlyNumbers(this.element.value);
+      setTimeout(() => {
+        if (this.selectionStart === 2 && this.element === document.activeElement && typeof +e.key === 'number') {
+          let value = getOnlyNumbers(this.element.value);
 
-        if (value[0] === '7' || value[0] === '8') {
-
-          this.element.value = value.substring(1, value.length) + e.key;
+          if (value[0] === '7' || value[0] === '8') {
+            this.element.blur();
+            this.element.value = '';
+            this.element.focus();
+            // this.element.value = value.substring(1, value.length) + e.key;
+          }
         }
-      }
+      }, 100)
 
     }
     )
     this.form.addEventListener('submit', (e) => {
+      evt.preventDefault();
+      window.history.back();
+
       const formData = new FormData(this.form);
       const fieldName = this.element.name;
 
       formData.set(name, '+7' + formData.get(name))
+
+      this.form.submit();
     })
   }
 }

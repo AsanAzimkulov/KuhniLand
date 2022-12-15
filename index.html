@@ -1730,7 +1730,7 @@
     const callWidget = document.querySelector('.widgets .contact');
 
     const MSCHours = new Date().getUTCHours() + 3;
-    if (10 <= MSCHours <= 22) return;
+    if (10 <= MSCHours < 22) return;
 
     callWidget.style.display = 'none';
   </script>
