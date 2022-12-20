@@ -16,7 +16,7 @@
 /* А эта функция как раз занимается отправкой письма на указанный вами email */
 $sub='Заказ'; //сабж
 $email='Заказ <Лендинг грили>'; // от кого
- $send = mail ($address,$sub,$mes,"Content-type:text/plain; charset = utf-8\r\nFrom:$email;");
+ $send = mail ($address,$sub,$mes,"Content-type:text/plain; charset = utf-8\r\nFrom:$email; Reply-To: $email");
 
  header("Location: /");
 ?>
