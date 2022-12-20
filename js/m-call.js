@@ -9,6 +9,7 @@ function onCallRequest(e) {
     if (!input.isDirty) {
       e.target.querySelector('.ntf').style.display = 'block';
       return false;
+      e.preventDefault();
     } else {
       document.body.classList.add('call-requested');
       return true;
