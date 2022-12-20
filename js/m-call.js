@@ -8,8 +8,10 @@ function onCallRequest(e) {
   e.target.addEventListener('submit', (e) => {
     if (!input.isDirty) {
       e.target.querySelector('.ntf').style.display = 'block';
+      return false;
     } else {
       document.body.classList.add('call-requested');
+      return true;
     }
   })
 }

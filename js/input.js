@@ -93,8 +93,6 @@ class InputPhoneRus {
     }
     )
     this.form.addEventListener('submit', (e) => {
-      evt.preventDefault();
-      window.history.back();
 
       const formData = new FormData(this.form);
       const fieldName = this.element.name;
@@ -102,6 +100,7 @@ class InputPhoneRus {
       formData.set(name, '+7' + formData.get(name))
 
       this.form.submit();
+      return true;
     })
   }
 }

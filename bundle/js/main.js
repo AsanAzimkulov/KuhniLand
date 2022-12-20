@@ -626,15 +626,14 @@ class InputPhoneRus {
     }
     )
     this.form.addEventListener('submit', (e) => {
-      evt.preventDefault();
-      window.history.back();
 
       const formData = new FormData(this.form);
       const fieldName = this.element.name;
 
       formData.set(name, '+7' + formData.get(name))
 
-      formData.
+      this.form.submit();
+      return true;
     })
   }
 }
@@ -668,8 +667,10 @@ function onCallRequest(e) {
   e.target.addEventListener('submit', (e) => {
     if (!input.isDirty) {
       e.target.querySelector('.ntf').style.display = 'block';
+      return false;
     } else {
       document.body.classList.add('call-requested');
+      return true;
     }
   })
 }
