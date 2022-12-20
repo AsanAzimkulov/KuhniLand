@@ -100,7 +100,6 @@ class InputPhoneRus {
       formData.set(name, '+7' + formData.get(name))
 
       this.form.submit();
-      return true;
     })
   }
 }
