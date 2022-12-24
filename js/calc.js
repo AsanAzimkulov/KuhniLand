@@ -318,33 +318,47 @@ function setLink(formData) {
 
   fileName.remove(formatDimension())
 
-  const css = `.calc-modal__wrapper--extras {
-    background: url(../../images/calc-modal-bgs/${fileName.value}-m.png) no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-  @supports (gap: 1px) {
-    .calc-modal__wrapper--extras {
-      background: url(../../images/calc-modal-bgs/${fileName.value}-m.webp) no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-  }
-  @media (min-width: 768px) {
-    .calc-modal__wrapper--extras {
-      background: url(../../images/calc-modal-bgs/${fileName.value}-t.png) no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-    @supports (gap: 1px) {
-      .calc-modal__wrapper--extras {
-        background: url(../../images/calc-modal-bgs/${fileName.value}-t.webp) no-repeat;
-        background-position: center;
-        background-size: cover;
-      }
-    }
-  }
-  @media (min-width: 1440px) {
+  // const css = `.calc-modal__wrapper--extras {
+  //   background: url(../../images/calc-modal-bgs/${fileName.value}-m.png) no-repeat;
+  //   background-position: center;
+  //   background-size: cover;
+  // }
+  // @supports (gap: 1px) {
+  //   .calc-modal__wrapper--extras {
+  //     background: url(../../images/calc-modal-bgs/${fileName.value}-m.webp) no-repeat;
+  //     background-position: center;
+  //     background-size: cover;
+  //   }
+  // }
+  // @media (min-width: 768px) {
+  //   .calc-modal__wrapper--extras {
+  //     background: url(../../images/calc-modal-bgs/${fileName.value}-t.png) no-repeat;
+  //     background-position: center;
+  //     background-size: cover;
+  //   }
+  //   @supports (gap: 1px) {
+  //     .calc-modal__wrapper--extras {
+  //       background: url(../../images/calc-modal-bgs/${fileName.value}-t.webp) no-repeat;
+  //       background-position: center;
+  //       background-size: cover;
+  //     }
+  //   }
+  // }
+  // @media (min-width: 1440px) {
+  //   .calc-modal__wrapper--extras {
+  //     background: url(../../images/calc-modal-bgs/${fileName.value}.png) no-repeat;
+  //     background-position: center;
+  //     background-size: cover;
+  //   }
+  //   @supports (gap: 1px) {
+  //     .calc-modal__wrapper--extras {
+  //       background: url(../../images/calc-modal-bgs/${fileName.value}.webp) no-repeat;
+  //       background-position: center;
+  //       background-size: cover;
+  //     }
+  //   }
+  // }`;
+  const css = `
     .calc-modal__wrapper--extras {
       background: url(../../images/calc-modal-bgs/${fileName.value}.png) no-repeat;
       background-position: center;
@@ -356,8 +370,7 @@ function setLink(formData) {
         background-position: center;
         background-size: cover;
       }
-    }
-  }`;
+    }`;
 
   const head = document.head || document.getElementsByTagName('head')[0],
     style = document.querySelector('head #calc-modal-bg-extras') || document.createElement('style');

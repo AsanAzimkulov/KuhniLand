@@ -7,14 +7,7 @@
 
   &__item {
     height: 400px;
-    background: url(../../images/m-1-m.png) no-repeat;
-    background-position: center;
-    background-size: cover;
-    @supports (gap: 1px) {
-    background: url(../../images/m-1-m.webp) no-repeat;
-    background-position: center;
-    background-size: cover;
-    }
+    
     &__content{
       display: none;
     }
@@ -117,6 +110,16 @@
       position: absolute;
       top: 0;
       left: 0;
+      &:nth-child(1){
+        background: url(../../images/m-1-m.png) no-repeat;
+        background-position: center;
+        background-size: cover;
+        @supports (gap: 1px) {
+        background: url(../../images/m-1-m.webp) no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+      }
       &:nth-child(2){
         &>div{
         background: url(../../images/m-2-m.png) no-repeat;
@@ -153,7 +156,162 @@
         }
         }
       }
-  
+      &:nth-child(5){
+        &>div{
+        background: url(../../images/calc-modal-bgs/grill-kuhnya-s-ostrovkov-ulitsa-kompozit.png) no-repeat;
+        background-position: center;
+        background-size: cover;
+        @supports (gap: 1px) {
+        background: url(../../images/calc-modal-bgs/grill-kuhnya-s-ostrovkov-ulitsa-kompozit.webp) no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+        }
+      }
+      &:nth-child(6){
+        &>div{
+        background: url(../../images/calc-modal-bgs/grill-kuhnya-p-obraznaya-ulitsa-kompozit.png) no-repeat;
+        background-position: center;
+        background-size: cover;
+        @supports (gap: 1px) {
+        background: url(../../images/calc-modal-bgs/grill-kuhnya-p-obraznaya-ulitsa-kompozit.webp) no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+        }
+      }
+      &:nth-child(7){
+        &>div{
+        background: url(../../images/calc-modal-bgs/grill-kuhnya-p-obraznaya-stal.png) no-repeat;
+        background-position: center;
+        background-size: cover;
+        @supports (gap: 1px) {
+        background: url(../../images/calc-modal-bgs/grill-kuhnya-p-obraznaya-stal.webp) no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+        }
+      }
+      &:nth-child(8){
+        &>div{
+        background: url(../../images/calc-modal-bgs/grill-kuhnya-s-ostrovkov-stal.png) no-repeat;
+        background-position: center;
+        background-size: cover;
+        @supports (gap: 1px) {
+        background: url(../../images/calc-modal-bgs/grill-kuhnya-s-ostrovkov-stal.webp) no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+        }
+      }
+      &:nth-child(9){
+        &>div{
+        background: url(../../images/calc-modal-bgs/grill-kuhnya-s-ostrovkov-dom-stal.png) no-repeat;
+        background-position: center;
+        background-size: cover;
+        @supports (gap: 1px) {
+        background: url(../../images/calc-modal-bgs/grill-kuhnya-s-ostrovkov-dom-stal.webp) no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+        }
+      }
+      &:nth-child(10){
+        &>div{
+        background: url(../../images/calc-modal-bgs/grill-kuhnya-uglovaya-dom-stal.png) no-repeat;
+        background-position: center;
+        background-size: cover;
+        @supports (gap: 1px) {
+        background: url(../../images/calc-modal-bgs/grill-kuhnya-uglovaya-dom-stal.webp) no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+        }
+      }
+      &:nth-child(11){
+        &>div{
+        background: url(../../images/calc-modal-bgs/grill-kuhnya-pryamaya-dom-stal.png) no-repeat;
+        background-position: center;
+        background-size: cover;
+        @supports (gap: 1px) {
+        background: url(../../images/calc-modal-bgs/grill-kuhnya-pryamaya-dom-stal.webp) no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+        }
+      }
+      &:nth-child(12){
+        &>div{
+        background: url(../../images/calc-modal-bgs/grill-kuhnya-pryamaya-stal.png) no-repeat;
+        background-position: center;
+        background-size: cover;
+        @supports (gap: 1px) {
+        background: url(../../images/calc-modal-bgs/grill-kuhnya-pryamaya-stal.webp) no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+        }
+      }
+      &:nth-child(13){
+        &>div{
+        background: url(../../images/calc-modal-bgs/grill-kuhnya-uglovaya-dom-kompozit.png) no-repeat;
+        background-position: center;
+        background-size: cover;
+        @supports (gap: 1px) {
+        background: url(../../images/calc-modal-bgs/grill-kuhnya-uglovaya-dom-kompozit.webp) no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+        }
+      }
+      &:nth-child(14){
+        &>div{
+        background: url(../../images/calc-modal-bgs/grill-kuhnya-p-obraznaya-dom-kompozit.png) no-repeat;
+        background-position: center;
+        background-size: cover;
+        @supports (gap: 1px) {
+        background: url(../../images/calc-modal-bgs/grill-kuhnya-p-obraznaya-dom-kompozit.webp) no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+        }
+      }
+      &:nth-child(15){
+        &>div{
+        background: url(../../images/calc-modal-bgs/grill-kuhnya-pryamaya-ulitsa-kompozit.png) no-repeat;
+        background-position: center;
+        background-size: cover;
+        @supports (gap: 1px) {
+        background: url(../../images/calc-modal-bgs/grill-kuhnya-pryamaya-ulitsa-kompozit.webp) no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+        }
+      }
+      &:nth-child(16){
+        &>div{
+        background: url(../../images/calc-modal-bgs/grill-kuhnya-uglovaya-ulitsa-kompozit.png) no-repeat;
+        background-position: center;
+        background-size: cover;
+        @supports (gap: 1px) {
+        background: url(../../images/calc-modal-bgs/grill-kuhnya-uglovaya-ulitsa-kompozit.webp) no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+        }
+      }
+      &:nth-child(17){
+        &>div{
+        background: url(../../images/calc-modal-bgs/grill-kuhnya-uglovaya-stal.png) no-repeat;
+        background-position: center;
+        background-size: cover;
+        @supports (gap: 1px) {
+        background: url(../../images/calc-modal-bgs/grill-kuhnya-uglovaya-stal.webp) no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+        }
+      }
       &_active {
       }
     }
@@ -182,9 +340,16 @@
       left: calc(50% - 52px);
       display: flex;
       width: 104px;
+
+      left: calc(50% - 150px);
+      display: flex;
+      width: 300px;
+
       justify-content: space-between;
       margin: 0;
       li {
+        @include item-spacing-gor(4px);
+
         width: 20px;
         height: 2px;
         background-color: rgba($white, .3);
@@ -309,6 +474,10 @@
       &__indicators {
         left: calc(50% - 150px);
         width: 300px;
+
+        left: calc(50% - 250px);
+        display: flex;
+        width: 500px;
         li {
           width: 60px;
           height: 6px;
@@ -346,6 +515,12 @@
       }
       &__indicators{
         bottom: 40px;
+        left: calc(50% - 350px);
+        display: flex;
+        width: 700px;
+        li{
+          @include item-spacing(6px);
+        }
       }
 
       &__control {
