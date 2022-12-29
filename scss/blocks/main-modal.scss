@@ -337,7 +337,7 @@
         aspect-ratio: 11.25 / 15;
 
       }
-      &:nth-child(3), &:nth-child(6){
+      &:nth-child(3){
         .slider__item{
             .main-modal__slider__item{
               max-height: 1000px;
@@ -346,11 +346,18 @@
             aspect-ratio: 2 / 1.5 !important; 
         }
       }
-      &:nth-child(4){
+      &:nth-child(4), &:nth-child(6){
         .slider__item{
             .main-modal__slider__item{
               aspect-ratio: 1.125 / 1.5;
-              max-height: 1170px;
+              max-height: 992px;
+          }
+          max-height: 992px;
+
+          @media(min-width: 1920px){
+            picture{
+              transform: translateY(-300px);
+            }
           }
 
           aspect-ratio: 1.125 / 1.5;
