@@ -1574,8 +1574,69 @@
 .stages__images picture:first-child img {
   display: block;
 }
-.stages__images img {
+.stages__images div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 104%;
+  top: -2.1%;
   display: none;
+}
+.stages__images div:first-child {
+  display: block;
+}
+.stages__images div:nth-child(1) {
+  background: url(../../images/stages-bg-1.png);
+  background-size: auto 100%;
+  background-position: center 0;
+}
+@supports (gap: 1px) {
+  .stages__images div:nth-child(1) {
+    background: url(../../images/stages-bg-1.webp);
+    background-size: auto 100%;
+    background-position: center 0;
+  }
+}
+.stages__images div:nth-child(2) {
+  background: url(../../images/stages-bg-2.png);
+  background-size: auto 100%;
+  background-position: center 0;
+}
+@supports (gap: 1px) {
+  .stages__images div:nth-child(2) {
+    background: url(../../images/stages-bg-2.webp);
+    background-size: auto 100%;
+    background-position: center 0;
+  }
+}
+.stages__images div:nth-child(3) {
+  background: url(../../images/stages-bg-3.png);
+  background-size: auto 100%;
+  background-position: center 0;
+}
+@supports (gap: 1px) {
+  .stages__images div:nth-child(3) {
+    background: url(../../images/stages-bg-3.webp);
+    background-size: auto 100%;
+    background-position: center 0;
+  }
+}
+.stages__images div:nth-child(4) {
+  background: url(../../images/stages-bg-4.png);
+  background-size: auto 100%;
+  background-position: center 0;
+}
+@supports (gap: 1px) {
+  .stages__images div:nth-child(4) {
+    background: url(../../images/stages-bg-4.webp);
+    background-size: auto 100%;
+    background-position: center 0;
+  }
+}
+.stages__images img {
+  display: none !important;
   position: absolute;
   width: 104%;
   height: 104%;

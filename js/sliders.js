@@ -16,9 +16,9 @@ $('.stages__top li').on('click', function (e) {
 $('.stages .slider').on('transition-start', function (e) {
   $('.stages__top li').removeClass('stages__top__item--active');
   $('.stages__top li.stages__top__item').eq($('.stages .slider__indicators li.active').attr('data-slide-to')).addClass('stages__top__item--active');
-  $('.stages__images img').css('display', 'none');
+  $('.stages__images div').css('display', 'none');
 
-  $('.stages__images img').eq($('.stages .slider__indicators li.active').attr('data-slide-to')).addClass('stages__top__item--active').css('display', 'block');
+  $('.stages__images div').eq($('.stages .slider__indicators li.active').attr('data-slide-to')).addClass('stages__top__item--active').css('display', 'block');
 });
 
 
