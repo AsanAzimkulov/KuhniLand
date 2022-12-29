@@ -20,6 +20,12 @@
     background-size: auto 100%;
     background-repeat: no-repeat;
     background-position: center;
+    @media(max-width: 428.5px){
+      background-image: url('../../images/bg-1-mm.png');
+      background-size: 100% auto ;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
     // @supports (gap: 1px) {
     // background-image: url('../../images/bg-1-m.webp');
     // background-repeat: no-repeat;
@@ -137,6 +143,8 @@
       background-position: center;
       background-size: cover;
       }
+
+
     }
   }
 

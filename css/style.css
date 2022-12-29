@@ -625,6 +625,14 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+@media (max-width: 428.5px) {
+  .promo__wrapper {
+    background-image: url("../../images/bg-1-mm.png");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
 .promo__title {
   font-family: "Posterama Text", sans-serif;
   font-style: normal;
