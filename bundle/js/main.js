@@ -417,8 +417,12 @@ function onCalc(e) {
   material.textContent = formatMaterial(formData.get(formFields.material));
 
   const name = calculationModal.querySelector('#calc-modal-name');
-  console.log(name)
-  name.textContent = formatKitchenName(formData.get(formFields.material));
+
+  try {
+    name.textContent = formatKitchenName(formData.get(formFields.material));
+  } catch (error) {
+
+  }
 
   const installation = calculationModal.querySelector('#calc-modal-installation');
   installation.textContent = formData.get(formFields.installation);
@@ -820,7 +824,7 @@ const mainModals = document.querySelectorAll('.main-modal');
         [...modal.querySelectorAll('.slider')].forEach(slider => slider.style.display = 'none');
 
 
-        [...modal.querySelectorAll('.slider')][Math.round(index / 2)].style.display = 'block';
+        [...modal.querySelectorAll('.slider')][Math.floor(index / 2)].style.display = 'block';
 
         const content = trigger.closest('.reviews__item').querySelector('.reviews__item__modal-content').cloneNode(true);
 

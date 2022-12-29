@@ -119,10 +119,10 @@
       background: url('../../images/bg-1-m.png');
       padding-top: 165px;
       background-size: cover;
-      @supports (gap: 1px) {
-      background: url('../../images/bg-1-m.webp');
-      background-size: cover;
-      }
+      // @supports (gap: 1px) {
+      // background: url('../../images/bg-1-m.webp');
+      // background-size: cover;
+      // }
     }
   }
 

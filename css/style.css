@@ -720,12 +720,6 @@
     padding-top: 165px;
     background-size: cover;
   }
-  @supports (gap: 1px) {
-    .promo__wrapper {
-      background: url("../../images/bg-1-m.webp");
-      background-size: cover;
-    }
-  }
 }
 @media (min-width: 1024px) {
   .promo__wrapper {
@@ -2479,6 +2473,11 @@
   background: #FBFBFB;
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.15);
   border-radius: 12px;
+}
+@media (min-width: 991px) and (max-width: 1439.5px) {
+  .cases__panel {
+    max-width: 528px;
+  }
 }
 .cases__panel__wrapper {
   padding: 0 20px;

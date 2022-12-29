@@ -128,7 +128,7 @@ const mainModals = document.querySelectorAll('.main-modal');
         [...modal.querySelectorAll('.slider')].forEach(slider => slider.style.display = 'none');
 
 
-        [...modal.querySelectorAll('.slider')][Math.round(index / 2)].style.display = 'block';
+        [...modal.querySelectorAll('.slider')][Math.floor(index / 2)].style.display = 'block';
 
         const content = trigger.closest('.reviews__item').querySelector('.reviews__item__modal-content').cloneNode(true);
 
