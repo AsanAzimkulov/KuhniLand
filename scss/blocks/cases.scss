@@ -8,7 +8,7 @@
   &__item {
     @media(max-width: 767.5px){
       aspect-ratio: 19.2 /  8.86;
-      min-height: 250px;
+      // min-height: 250px;
       @media(max-width: 384px){
         img{
           transform: translateX(-25%);
@@ -63,7 +63,7 @@
     // height: 400px;
     aspect-ratio: 19.2/ 8.86;
     width: 100%;
-    min-height: 250px;
+    // min-height: 250px;
 
     &::before{
       pointer-events: none;
@@ -341,7 +341,7 @@
     &__control {
       height: 100%;
       width: 40px;
-      background: url(../../images/icons/slider-next.svg) no-repeat;
+      background: url(../../images/icons/slider-prev.svg) no-repeat;
       background-position: 10px 50%;
       background-size: 20px 120px;
       display: block;
@@ -350,11 +350,14 @@
       top: 0;
       left: 0;
       z-index: 2;
-      transform: rotateY(180deg);
+      // transform: rotateY(180deg);
       &[data-slide="next"]{
         transform: rotateY(0deg);
         left: unset;
         right: 0;
+        background: url(../../images/icons/slider-next.svg) no-repeat;
+        background-position: 10px 50%;
+        background-size: 20px 120px;
       }
     }
   
@@ -485,14 +488,19 @@
       }
       &__control {
         width: 60px;
-        background-position: 0px 209px;
+        background-position: 20px 209px;
         background-size: 40px 180px;
 
 
         &[data-slide="next"]{
-          transform: rotateY(0deg);
+          // transform: rotateY(0deg);
+          width: 60px;
+          background-position: 20px 209px;
+          background-size: 40px 180px;
           left: unset;
           right: 0;
+          background-position: 0px 209px;
+
         }
       }
 
@@ -551,10 +559,20 @@
 
       &__control {
         width: 80px;
+        background: url(../../images/icons/slider-prev-d.svg) no-repeat;
+        background-position: 20px 304.5px;
+        background-size: 40px 320px;
+        z-index: 2;
+        &[data-slide="next"]{
+          // transform: rotateY(0deg);
+
+          left: unset;
+          right: 0;
         background: url(../../images/icons/slider-next-d.svg) no-repeat;
         background-position: 0px 304.5px;
         background-size: 40px 320px;
-        z-index: 2;
+
+        }
       }
 
       &__item{

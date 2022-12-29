@@ -995,7 +995,7 @@
     height: 24px;
   }
 }
-@media (min-width: 1920px) {
+@media (min-width: 1440px) {
   .widgets {
     bottom: 118px;
   }
@@ -2379,7 +2379,6 @@
 @media (max-width: 767.5px) {
   .cases__item {
     aspect-ratio: 19.2/8.86;
-    min-height: 250px;
   }
 }
 @media (max-width: 767.5px) and (max-width: 384px) {
@@ -2482,7 +2481,6 @@
 .cases .slider {
   aspect-ratio: 19.2/8.86;
   width: 100%;
-  min-height: 250px;
 }
 .cases .slider::before {
   pointer-events: none;
@@ -2692,7 +2690,7 @@
 .cases .slider__control {
   height: 100%;
   width: 40px;
-  background: url(../../images/icons/slider-next.svg) no-repeat;
+  background: url(../../images/icons/slider-prev.svg) no-repeat;
   background-position: 10px 50%;
   background-size: 20px 120px;
   display: block;
@@ -2701,12 +2699,14 @@
   top: 0;
   left: 0;
   z-index: 2;
-  transform: rotateY(180deg);
 }
 .cases .slider__control[data-slide=next] {
   transform: rotateY(0deg);
   left: unset;
   right: 0;
+  background: url(../../images/icons/slider-next.svg) no-repeat;
+  background-position: 10px 50%;
+  background-size: 20px 120px;
 }
 .cases .slider__indicators {
   bottom: 20px;
@@ -2831,13 +2831,16 @@
   }
   .cases .slider__control {
     width: 60px;
-    background-position: 0px 209px;
+    background-position: 20px 209px;
     background-size: 40px 180px;
   }
   .cases .slider__control[data-slide=next] {
-    transform: rotateY(0deg);
+    width: 60px;
+    background-position: 20px 209px;
+    background-size: 40px 180px;
     left: unset;
     right: 0;
+    background-position: 0px 209px;
   }
   .cases .slider__indicators {
     left: calc(50% - 150px);
@@ -2891,10 +2894,17 @@
   }
   .cases .slider__control {
     width: 80px;
+    background: url(../../images/icons/slider-prev-d.svg) no-repeat;
+    background-position: 20px 304.5px;
+    background-size: 40px 320px;
+    z-index: 2;
+  }
+  .cases .slider__control[data-slide=next] {
+    left: unset;
+    right: 0;
     background: url(../../images/icons/slider-next-d.svg) no-repeat;
     background-position: 0px 304.5px;
     background-size: 40px 320px;
-    z-index: 2;
   }
   .cases .slider__item:nth-child(1) > div {
     background: url(../../images/m-1.png) no-repeat;
@@ -4967,7 +4977,7 @@
   z-index: 2;
   height: 100%;
   width: 40px;
-  background: url(../../images/icons/slider-next.svg) no-repeat;
+  background: url(../../images/icons/slider-prev.svg) no-repeat;
   background-position: 10px 50%;
   background-size: 20px 120px;
   display: block;
@@ -4975,26 +4985,34 @@
   position: absolute;
   top: 0;
   left: 0;
-  transform: rotateY(180deg);
 }
 .main-modal .slider__control[data-slide=next] {
-  transform: rotateY(0deg);
+  background: url(../../images/icons/slider-next.svg) no-repeat;
+  background-position: 0px 50%;
+  background-size: 20px 120px;
   left: unset;
   right: 0;
 }
 @media (min-width: 768px) {
   .main-modal .slider__control {
     width: 60px;
+    background-position: 20px 50%;
     background-size: 40px 180px;
   }
   .main-modal .slider__control[data-slide=next] {
-    transform: rotateY(0deg);
+    width: 60px;
+    background-position: 0px 50%;
+    background-size: 40px 180px;
     left: unset;
     right: 0;
   }
 }
 @media (min-width: 1440px) {
   .main-modal .slider__control {
+    width: 80px;
+    background-size: 40px 320px;
+  }
+  .main-modal .slider__control[data-slide=next] {
     width: 80px;
     background-size: 40px 320px;
   }
