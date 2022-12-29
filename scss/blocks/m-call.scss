@@ -10,22 +10,17 @@
   &--opened {
     display: block;
   }
-  .ntf{
-    display: none;
-    color: red;
-    font-size: 14px;
-    margin-bottom: 5px;
-  }
-  &__success{
+
+  &__success {
     display: none;
     justify-content: center;
     flex-wrap: wrap;
-    &__image{
+    &__image {
       width: 32px;
       height: 32px;
       margin-bottom: 20px;
     }
-    &__info{
+    &__info {
       @include title-success-form;
       width: 100%;
     }
@@ -35,15 +30,15 @@
     top: 80px;
     transform: translateX((-50%));
     margin-bottom: 120px;
-    background: #FBFBFB;
+    background: #fbfbfb;
     box-shadow: 0px 2px 8px rgba(55, 62, 70, 0.15);
-    border-radius: 20px; 
+    border-radius: 20px;
     padding: 40px;
     position: relative;
     width: calc(100% - 40px);
   }
 
-  &__close{
+  &__close {
     cursor: pointer;
     width: 24px;
     height: 24px;
@@ -55,48 +50,53 @@
     right: 20px;
   }
 
-  &__title{
+  &__title {
     @include third-title-big;
     color: $darkGrey;
     text-align: center;
     margin-bottom: 40px;
   }
 
-
   &__form {
-    &__group{
+    .ntf {
+      display: none;
+      color: red;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+    &__group {
       margin-bottom: 12px;
       &__title {
         @include secondary-text($darkGrey);
         font-weight: 500;
         margin-bottom: 8px;
       }
-      &__input{
+      &__input {
         width: 100%;
         padding: 12px;
-        background: #FBFBFB;
+        background: #fbfbfb;
         border: 1px solid rgba($grey, 0.8);
         box-shadow: 0px 4px 4px rgba($darkGrey, 0.1);
         border-radius: 8px;
         caret-color: black;
         @include secondary-text;
-        &:hover{
+        &:hover {
           border: 1px solid $grey;
         }
-        &:focus{
+        &:focus {
           border: 1px solid $darkGrey;
           box-shadow: 0px 0px 4px rgba(55, 62, 70, 0.15), 0px 4px 4px rgba(55, 62, 70, 0.1);
         }
       }
-      .input-number{
+      .input-number {
         padding-left: 58px;
       }
 
       .input-number-wrap {
         display: block;
         position: relative;
-        &::before{
-          content: '';
+        &::before {
+          content: "";
           position: absolute;
           width: 18px;
           height: 18px;
@@ -106,8 +106,8 @@
           background: url(../../images/icons/russia.svg) no-repeat;
           display: block;
         }
-        &::after{
-          content: '+7';
+        &::after {
+          content: "+7";
           position: absolute;
           top: 13px;
           left: 34px;
@@ -116,40 +116,46 @@
       }
     }
 
-
-    &__options{
+    &__options {
       margin: 40px 0;
-      &__item{
+
+      &__item {
         cursor: pointer;
-        padding: 12.31px 20.5px;
         border-radius: 12px;
         height: 48px;
         display: flex;
         align-items: center;
         justify-content: center;
+        a{
+          padding: 12.31px 20.5px;
+          border-radius: 12px;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
         @include secondary-text;
         color: $vinous;
-        svg path{
-          fill: $vinous
+        svg path {
+          fill: $vinous;
         }
         svg {
           margin-right: 12px;
           width: 20px;
           height: 20px;
         }
-        span.desctop{
+        span.desctop {
           display: none;
         }
-        
 
-        &:hover{
+        &:hover {
           color: $white;
           background: $lightVinous;
           svg path {
             fill: $white;
           }
         }
-        &--active{
+        &--active {
           font-weight: 600;
           color: $white;
           background: $vinous;
@@ -157,15 +163,14 @@
             fill: $white;
           }
         }
-
       }
     }
-    &__submit{
+    &__submit {
       @include button-filled;
       margin-bottom: 12px;
       width: 100%;
     }
-    &__ps{
+    &__ps {
       @include ps-text;
       font-weight: 500;
       text-align: center;
@@ -173,76 +178,79 @@
     }
   }
 
-  @media(min-width: 768px){
-    &__success{
-      &__image{
+  @media (min-width: 768px) {
+    &__success {
+      &__image {
         width: 48px;
         height: 48px;
       }
     }
-    &__wrapper{
+    &__wrapper {
       width: 400px;
     }
   }
 
-  @media(min-width: 1440px){
-    &__success{
-      &__image{
+  @media (min-width: 1440px) {
+    &__success {
+      &__image {
         width: 64px;
         height: 64px;
       }
     }
-    &__wrapper{
+    &__wrapper {
       width: 590px;
     }
-    &__close{
+    &__close {
       width: 32px;
       height: 32px;
       background-size: 21.33px 21.33px;
     }
-    &__form{
+    &__form {
       &__submit {
         margin-bottom: 20px;
       }
-      &__group{
-        &__input{
+      &__group {
+        &__input {
           padding: 20px;
         }
-        .input-number{
+        .input-number {
           padding-left: 73px;
         }
-        .input-number-wrap{
-          &::before{
+        .input-number-wrap {
+          &::before {
             top: 23px;
             left: 20px;
             background-size: 20px 20px;
             width: 20px;
             height: 20px;
           }
-          &::after{
+          &::after {
             top: 21px;
             left: 44px;
           }
         }
       }
 
-      &__options{
+      &__options {
         display: flex;
         border-radius: 20px;
         outline: 1px solid $vinous;
         overflow: hidden;
-        &__item{
-          width: 33.333%;
+        a{
+          border-radius: 20px;
+        }
+        &__item {
+          width: 50%;
           border-radius: 0;
           height: 72px;
           svg {
             width: 26px;
             height: 26px;
           }
-          span{
+          span {
             display: none;
           }
-          span.desctop{
+          span.desctop {
             display: inline;
           }
         }
@@ -250,19 +258,19 @@
     }
   }
 
-  @media(min-width: 1920px){
-    &__wrapper{
+  @media (min-width: 1920px) {
+    &__wrapper {
       top: 180px;
     }
   }
 }
 
-.call-requested{
-  .m-call__success{
+.call-requested {
+  .m-call__success {
     display: flex;
   }
-  .m-call__title, .m-call__form{
+  .m-call__title,
+  .m-call__form {
     display: none;
   }
 }
-

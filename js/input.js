@@ -92,12 +92,32 @@ class InputPhoneRus {
 
     }
     )
+
     this.form.addEventListener('submit', (e) => {
 
       const formData = new FormData(this.form);
-      const fieldName = this.element.name;
+      // const fieldName = this.element.name;
 
-      formData.set(name, '+7' + formData.get(name))
+      // formData.set(name, '+7' + formData.get(name))
+      e.preventDefault();
+
+      const input = e.target.querySelector('.input-number');
+
+
+      if (!input.isDirty) {
+        e.target.querySelector('.ntf').style.display = 'block';
+        e.preventDefault();
+        return false;
+
+      } else {
+        document.body.classList.add('call-requested');
+        window.localStorage.setItem('isCallRequested', new Date().getTime())
+        
+        const pasteBoardForm = document.querySelector('#m-call-form-pasteboard');
+        pasteBoardForm.querySelector('input[name="phone-number"]').value = formData.get('phone-number');
+        pasteBoardForm.querySelector('input[name="name"]').value = formData.get('name');
+        document.querySelector('input[data-class="m-call__form__submit"]').click();
+      }
 
       // this.form.submit();
     })

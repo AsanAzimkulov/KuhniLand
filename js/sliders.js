@@ -31,6 +31,8 @@ if ($('.cases .slider__item').length > 1) {
 $('.cases .slider').on('transition-start', function (e) {
   const itemContent = $('.cases .slider__item').eq($('.cases .slider__indicators li.active').attr('data-slide-to'));
 
+  console.log($('.cases .slider__indicators li.active').attr('data-slide-to'))
+
 
   const titleContent = $(itemContent).find('h3').contents();
 
@@ -73,6 +75,7 @@ if ($('.dealer .slider__item').length > 1) {
 //     if ($(el).find('.slider__item').length > 1) {
 //       new ChiefSlider(el);
 //     }
+
 
 //   })
 // }, 4000)

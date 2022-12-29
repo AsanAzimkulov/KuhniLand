@@ -30,6 +30,19 @@
   }
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 .no-scroll-y {
   overflow-y: hidden;
 }
@@ -608,6 +621,7 @@
   padding-top: 180px;
   background-image: url("../../images/bg-1-m.png");
   min-height: 465px;
+  background-size: auto 100%;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -615,6 +629,7 @@
   .promo__wrapper {
     background-image: url("../../images/bg-1-m.webp");
     background-repeat: no-repeat;
+    background-size: auto 100%;
     background-position: center;
   }
 }
@@ -990,7 +1005,7 @@
 }
 @media (min-width: 1920px) {
   .widgets {
-    bottom: 195px;
+    bottom: 118px;
   }
 }
 
@@ -1575,6 +1590,16 @@
   top: -2.1%;
   transform: scaleX(1.02);
   left: -0.3%;
+}
+@media (max-width: 767.5px) {
+  .stages__images img {
+    transform: scaleX(1.5);
+  }
+}
+@media (max-width: 429px) {
+  .stages__images img {
+    transform: scaleX(2.4);
+  }
 }
 .stages__title {
   margin-bottom: 40px;
@@ -2359,8 +2384,16 @@
     margin-bottom: 140px;
   }
 }
-.cases__item {
-  height: 400px;
+@media (max-width: 767.5px) {
+  .cases__item {
+    aspect-ratio: 19.2/8.86;
+    min-height: 250px;
+  }
+}
+@media (max-width: 767.5px) and (max-width: 384px) {
+  .cases__item img {
+    transform: translateX(-25%);
+  }
 }
 .cases__item__content {
   display: none;
@@ -2455,7 +2488,9 @@
   }
 }
 .cases .slider {
-  height: 400px;
+  aspect-ratio: 19.2/8.86;
+  width: 100%;
+  min-height: 250px;
 }
 .cases .slider::before {
   pointer-events: none;
@@ -2467,7 +2502,6 @@
   height: 100%;
   display: block;
   background: linear-gradient(90deg, rgba(55, 62, 70, 0.5) 0%, rgba(55, 62, 70, 0) 100%);
-  border-radius: 20px 0px 0px 20px;
 }
 .cases .slider::after {
   pointer-events: none;
@@ -2479,7 +2513,6 @@
   height: 100%;
   display: block;
   background: linear-gradient(270deg, rgba(55, 62, 70, 0.5) 0%, rgba(55, 62, 70, 0) 100%);
-  border-radius: 0 20px 20px 0;
 }
 .cases .slider__container, .cases .slider__wrapper, .cases .slider__items, .cases .slider__item {
   height: 100%;
@@ -2506,221 +2539,176 @@
   top: 0;
   left: 0;
 }
-.cases .slider__item:nth-child(1) {
-  background: url(../../images/m-1-m.png) no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-@supports (gap: 1px) {
-  .cases .slider__item:nth-child(1) {
-    background: url(../../images/m-1-m.webp) no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-}
-.cases .slider__item:nth-child(2) > div {
-  background: url(../../images/m-2-m.png) no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-@supports (gap: 1px) {
-  .cases .slider__item:nth-child(2) > div {
-    background: url(../../images/m-2-m.webp) no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-}
-.cases .slider__item:nth-child(3) > div {
-  background: url(../../images/m-3-m.png) no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-@supports (gap: 1px) {
-  .cases .slider__item:nth-child(3) > div {
-    background: url(../../images/m-3-m.webp) no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-}
-.cases .slider__item:nth-child(4) > div {
-  background: url(../../images/m-4-m.png) no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-@supports (gap: 1px) {
-  .cases .slider__item:nth-child(4) > div {
-    background: url(../../images/m-4-m.webp) no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-}
-.cases .slider__item:nth-child(5) > div {
-  background: url(../../images/calc-modal-bgs/grill-kuhnya-s-ostrovkov-ulitsa-kompozit.png) no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-@supports (gap: 1px) {
+@media (min-width: 768px) {
   .cases .slider__item:nth-child(5) > div {
-    background: url(../../images/calc-modal-bgs/grill-kuhnya-s-ostrovkov-ulitsa-kompozit.webp) no-repeat;
+    background: url(../../images/calc-modal-bgs/grill-kuhnya-s-ostrovkov-ulitsa-kompozit.png) no-repeat;
     background-position: center;
     background-size: cover;
   }
-}
-.cases .slider__item:nth-child(6) > div {
-  background: url(../../images/calc-modal-bgs/grill-kuhnya-p-obraznaya-ulitsa-kompozit.png) no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-@supports (gap: 1px) {
+  @supports (gap: 1px) {
+    .cases .slider__item:nth-child(5) > div {
+      background: url(../../images/calc-modal-bgs/grill-kuhnya-s-ostrovkov-ulitsa-kompozit.webp) no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
   .cases .slider__item:nth-child(6) > div {
-    background: url(../../images/calc-modal-bgs/grill-kuhnya-p-obraznaya-ulitsa-kompozit.webp) no-repeat;
+    background: url(../../images/calc-modal-bgs/grill-kuhnya-p-obraznaya-ulitsa-kompozit.png) no-repeat;
     background-position: center;
     background-size: cover;
   }
-}
-.cases .slider__item:nth-child(7) > div {
-  background: url(../../images/calc-modal-bgs/grill-kuhnya-p-obraznaya-stal.png) no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-@supports (gap: 1px) {
+  @supports (gap: 1px) {
+    .cases .slider__item:nth-child(6) > div {
+      background: url(../../images/calc-modal-bgs/grill-kuhnya-p-obraznaya-ulitsa-kompozit.webp) no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
   .cases .slider__item:nth-child(7) > div {
-    background: url(../../images/calc-modal-bgs/grill-kuhnya-p-obraznaya-stal.webp) no-repeat;
+    background: url(../../images/calc-modal-bgs/grill-kuhnya-p-obraznaya-stal.png) no-repeat;
     background-position: center;
     background-size: cover;
   }
-}
-.cases .slider__item:nth-child(8) > div {
-  background: url(../../images/calc-modal-bgs/grill-kuhnya-s-ostrovkov-stal.png) no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-@supports (gap: 1px) {
+  @supports (gap: 1px) {
+    .cases .slider__item:nth-child(7) > div {
+      background: url(../../images/calc-modal-bgs/grill-kuhnya-p-obraznaya-stal.webp) no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
   .cases .slider__item:nth-child(8) > div {
-    background: url(../../images/calc-modal-bgs/grill-kuhnya-s-ostrovkov-stal.webp) no-repeat;
+    background: url(../../images/calc-modal-bgs/grill-kuhnya-s-ostrovkov-stal.png) no-repeat;
     background-position: center;
     background-size: cover;
   }
-}
-.cases .slider__item:nth-child(9) > div {
-  background: url(../../images/calc-modal-bgs/grill-kuhnya-s-ostrovkov-dom-stal.png) no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-@supports (gap: 1px) {
+  @supports (gap: 1px) {
+    .cases .slider__item:nth-child(8) > div {
+      background: url(../../images/calc-modal-bgs/grill-kuhnya-s-ostrovkov-stal.webp) no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
   .cases .slider__item:nth-child(9) > div {
-    background: url(../../images/calc-modal-bgs/grill-kuhnya-s-ostrovkov-dom-stal.webp) no-repeat;
+    background: url(../../images/calc-modal-bgs/grill-kuhnya-s-ostrovkov-dom-stal.png) no-repeat;
     background-position: center;
     background-size: cover;
   }
-}
-.cases .slider__item:nth-child(10) > div {
-  background: url(../../images/calc-modal-bgs/grill-kuhnya-uglovaya-dom-stal.png) no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-@supports (gap: 1px) {
+  @supports (gap: 1px) {
+    .cases .slider__item:nth-child(9) > div {
+      background: url(../../images/calc-modal-bgs/grill-kuhnya-s-ostrovkov-dom-stal.webp) no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
   .cases .slider__item:nth-child(10) > div {
-    background: url(../../images/calc-modal-bgs/grill-kuhnya-uglovaya-dom-stal.webp) no-repeat;
+    background: url(../../images/calc-modal-bgs/grill-kuhnya-uglovaya-dom-stal.png) no-repeat;
     background-position: center;
     background-size: cover;
   }
-}
-.cases .slider__item:nth-child(11) > div {
-  background: url(../../images/calc-modal-bgs/grill-kuhnya-pryamaya-dom-stal.png) no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-@supports (gap: 1px) {
+  @supports (gap: 1px) {
+    .cases .slider__item:nth-child(10) > div {
+      background: url(../../images/calc-modal-bgs/grill-kuhnya-uglovaya-dom-stal.webp) no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
   .cases .slider__item:nth-child(11) > div {
-    background: url(../../images/calc-modal-bgs/grill-kuhnya-pryamaya-dom-stal.webp) no-repeat;
+    background: url(../../images/calc-modal-bgs/grill-kuhnya-pryamaya-dom-stal.png) no-repeat;
     background-position: center;
     background-size: cover;
   }
-}
-.cases .slider__item:nth-child(12) > div {
-  background: url(../../images/calc-modal-bgs/grill-kuhnya-pryamaya-stal.png) no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-@supports (gap: 1px) {
+  @supports (gap: 1px) {
+    .cases .slider__item:nth-child(11) > div {
+      background: url(../../images/calc-modal-bgs/grill-kuhnya-pryamaya-dom-stal.webp) no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
   .cases .slider__item:nth-child(12) > div {
-    background: url(../../images/calc-modal-bgs/grill-kuhnya-pryamaya-stal.webp) no-repeat;
+    background: url(../../images/calc-modal-bgs/grill-kuhnya-pryamaya-stal.png) no-repeat;
     background-position: center;
     background-size: cover;
   }
-}
-.cases .slider__item:nth-child(13) > div {
-  background: url(../../images/calc-modal-bgs/grill-kuhnya-uglovaya-dom-kompozit.png) no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-@supports (gap: 1px) {
+  @supports (gap: 1px) {
+    .cases .slider__item:nth-child(12) > div {
+      background: url(../../images/calc-modal-bgs/grill-kuhnya-pryamaya-stal.webp) no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
   .cases .slider__item:nth-child(13) > div {
-    background: url(../../images/calc-modal-bgs/grill-kuhnya-uglovaya-dom-kompozit.webp) no-repeat;
+    background: url(../../images/calc-modal-bgs/grill-kuhnya-uglovaya-dom-kompozit.png) no-repeat;
     background-position: center;
     background-size: cover;
   }
-}
-.cases .slider__item:nth-child(14) > div {
-  background: url(../../images/calc-modal-bgs/grill-kuhnya-p-obraznaya-dom-kompozit.png) no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-@supports (gap: 1px) {
+  @supports (gap: 1px) {
+    .cases .slider__item:nth-child(13) > div {
+      background: url(../../images/calc-modal-bgs/grill-kuhnya-uglovaya-dom-kompozit.webp) no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
   .cases .slider__item:nth-child(14) > div {
-    background: url(../../images/calc-modal-bgs/grill-kuhnya-p-obraznaya-dom-kompozit.webp) no-repeat;
+    background: url(../../images/calc-modal-bgs/grill-kuhnya-p-obraznaya-dom-kompozit.png) no-repeat;
     background-position: center;
     background-size: cover;
   }
-}
-.cases .slider__item:nth-child(15) > div {
-  background: url(../../images/calc-modal-bgs/grill-kuhnya-pryamaya-ulitsa-kompozit.png) no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-@supports (gap: 1px) {
+  @supports (gap: 1px) {
+    .cases .slider__item:nth-child(14) > div {
+      background: url(../../images/calc-modal-bgs/grill-kuhnya-p-obraznaya-dom-kompozit.webp) no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
   .cases .slider__item:nth-child(15) > div {
-    background: url(../../images/calc-modal-bgs/grill-kuhnya-pryamaya-ulitsa-kompozit.webp) no-repeat;
+    background: url(../../images/calc-modal-bgs/grill-kuhnya-pryamaya-ulitsa-kompozit.png) no-repeat;
     background-position: center;
     background-size: cover;
   }
-}
-.cases .slider__item:nth-child(16) > div {
-  background: url(../../images/calc-modal-bgs/grill-kuhnya-uglovaya-ulitsa-kompozit.png) no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-@supports (gap: 1px) {
+  @supports (gap: 1px) {
+    .cases .slider__item:nth-child(15) > div {
+      background: url(../../images/calc-modal-bgs/grill-kuhnya-pryamaya-ulitsa-kompozit.webp) no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
   .cases .slider__item:nth-child(16) > div {
-    background: url(../../images/calc-modal-bgs/grill-kuhnya-uglovaya-ulitsa-kompozit.webp) no-repeat;
+    background: url(../../images/calc-modal-bgs/grill-kuhnya-uglovaya-ulitsa-kompozit.png) no-repeat;
     background-position: center;
     background-size: cover;
   }
-}
-.cases .slider__item:nth-child(17) > div {
-  background: url(../../images/calc-modal-bgs/grill-kuhnya-uglovaya-stal.png) no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-@supports (gap: 1px) {
+  @supports (gap: 1px) {
+    .cases .slider__item:nth-child(16) > div {
+      background: url(../../images/calc-modal-bgs/grill-kuhnya-uglovaya-ulitsa-kompozit.webp) no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
   .cases .slider__item:nth-child(17) > div {
-    background: url(../../images/calc-modal-bgs/grill-kuhnya-uglovaya-stal.webp) no-repeat;
+    background: url(../../images/calc-modal-bgs/grill-kuhnya-uglovaya-stal.png) no-repeat;
     background-position: center;
     background-size: cover;
+  }
+  @supports (gap: 1px) {
+    .cases .slider__item:nth-child(17) > div {
+      background: url(../../images/calc-modal-bgs/grill-kuhnya-uglovaya-stal.webp) no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
   }
 }
 .cases .slider__control {
   height: 100%;
   width: 40px;
   background: url(../../images/icons/slider-next.svg) no-repeat;
-  background-position: 10px 140px;
+  background-position: 10px 50%;
   background-size: 20px 120px;
   display: block;
   cursor: pointer;
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 2;
   transform: rotateY(180deg);
 }
 .cases .slider__control[data-slide=next] {
@@ -2765,6 +2753,9 @@
   }
   .cases__item {
     height: 598px;
+  }
+  .cases__item img {
+    display: none;
   }
   .cases__item__content {
     display: none;
@@ -3163,6 +3154,7 @@
 }
 .reviews__item__content {
   padding: 20px;
+  height: 100%;
 }
 .reviews__item__title {
   font-family: "Montserrat", sans-serif;
@@ -3282,6 +3274,10 @@
   padding: 0 50px;
   opacity: 0;
   transition: opacity 300ms ease-in;
+  min-height: 100%;
+}
+.reviews .slider__item > div {
+  min-height: 100%;
 }
 .reviews .slider__item_active {
   opacity: 1;
@@ -3344,16 +3340,6 @@
     height: 160px;
     width: 100%;
     border-radius: 20px 20px 0 0;
-    background: url(../../images/r-1.png) no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-  @supports (gap: 1px) {
-    .reviews__item__picture {
-      background: url(../../images/r-1.webp) no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
   }
   .reviews .slider {
     padding: 0 40px;
@@ -3362,6 +3348,42 @@
     padding: 0 20px;
     max-width: 50%;
     flex: 0 0 50%;
+  }
+  .reviews .slider__item:nth-child(1) .reviews__item__picture, .reviews .slider__item:nth-child(4) .reviews__item__picture {
+    background: url(../../images/reviews/1-1.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  @supports (gap: 1px) {
+    .reviews .slider__item:nth-child(1) .reviews__item__picture, .reviews .slider__item:nth-child(4) .reviews__item__picture {
+      background: url(../../images/reviews/1-1.webp) no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  .reviews .slider__item:nth-child(2) .reviews__item__picture {
+    background: url(../../images/reviews/2-1.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  @supports (gap: 1px) {
+    .reviews .slider__item:nth-child(2) .reviews__item__picture {
+      background: url(../../images/reviews/2-1.webp) no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  .reviews .slider__item:nth-child(3) .reviews__item__picture {
+    background: url(../../images/reviews/3-1.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  @supports (gap: 1px) {
+    .reviews .slider__item:nth-child(3) .reviews__item__picture {
+      background: url(../../images/reviews/3-1.webp) no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
   }
   .reviews .slider__indicators {
     display: none;
@@ -3700,12 +3722,6 @@
 .m-call--opened {
   display: block;
 }
-.m-call .ntf {
-  display: none;
-  color: red;
-  font-size: 14px;
-  margin-bottom: 5px;
-}
 .m-call__success {
   display: none;
   justify-content: center;
@@ -3744,7 +3760,7 @@
   top: 80px;
   transform: translateX(-50%);
   margin-bottom: 120px;
-  background: #FBFBFB;
+  background: #fbfbfb;
   box-shadow: 0px 2px 8px rgba(55, 62, 70, 0.15);
   border-radius: 20px;
   padding: 40px;
@@ -3780,6 +3796,12 @@
     line-height: 29px;
   }
 }
+.m-call__form .ntf {
+  display: none;
+  color: red;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
 .m-call__form__group {
   margin-bottom: 12px;
 }
@@ -3802,7 +3824,7 @@
 .m-call__form__group__input {
   width: 100%;
   padding: 12px;
-  background: #FBFBFB;
+  background: #fbfbfb;
   border: 1px solid rgba(116, 116, 116, 0.8);
   box-shadow: 0px 4px 4px rgba(55, 62, 70, 0.1);
   border-radius: 8px;
@@ -3868,7 +3890,6 @@
 }
 .m-call__form__options__item {
   cursor: pointer;
-  padding: 12.31px 20.5px;
   border-radius: 12px;
   height: 48px;
   display: flex;
@@ -3881,6 +3902,14 @@
   line-height: 130%;
   color: #747474;
   color: #621F2A;
+}
+.m-call__form__options__item a {
+  padding: 12.31px 20.5px;
+  border-radius: 12px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @media (min-width: 1440px) {
   .m-call__form__options__item {
@@ -4015,8 +4044,11 @@
     outline: 1px solid #621F2A;
     overflow: hidden;
   }
+  .m-call__form__options a {
+    border-radius: 20px;
+  }
   .m-call__form__options__item {
-    width: 33.333%;
+    width: 50%;
     border-radius: 0;
     height: 72px;
   }
@@ -4040,7 +4072,8 @@
 .call-requested .m-call__success {
   display: flex;
 }
-.call-requested .m-call__title, .call-requested .m-call__form {
+.call-requested .m-call__title,
+.call-requested .m-call__form {
   display: none;
 }
 
@@ -4707,6 +4740,10 @@
   display: none;
   background: rgba(0, 0, 0, 0.25);
 }
+.main-modal picture {
+  border-radius: 20px !important;
+  overflow: hidden !important;
+}
 .main-modal--opened {
   display: block;
 }
@@ -4934,60 +4971,6 @@
 .main-modal .slider__items {
   transition: none;
 }
-.main-modal .slider__item:nth-child(2) > div > div {
-  background: url(../../images/mm-1-2-m.png) no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-@supports (gap: 1px) {
-  .main-modal .slider__item:nth-child(2) > div > div {
-    background: url(../../images/mm-1-2-m.webp) no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-}
-@media (min-width: 768px) {
-  .main-modal .slider__item:nth-child(2) > div > div {
-    background: url(../../images/mm-1-2-t.png) no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-  @supports (gap: 1px) {
-    .main-modal .slider__item:nth-child(2) > div > div {
-      background: url(../../images/mm-1-2-t.webp) no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-  }
-}
-@media (min-width: 1440px) {
-  .main-modal .slider__item:nth-child(2) > div > div {
-    background: url(../../images/mm-1-2-d.png) no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-  @supports (gap: 1px) {
-    .main-modal .slider__item:nth-child(2) > div > div {
-      background: url(../../images/mm-1-2-d.webp) no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-  }
-}
-@media (min-width: 1920px) {
-  .main-modal .slider__item:nth-child(2) > div > div {
-    background: url(../../images/mm-1-2-dd.png) no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-  @supports (gap: 1px) {
-    .main-modal .slider__item:nth-child(2) > div > div {
-      background: url(../../images/mm-1-2-dd.webp) no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-  }
-}
 .main-modal .slider__control {
   z-index: 2;
   height: 100%;
@@ -5069,52 +5052,47 @@
     width: 80px;
   }
 }
+.main-modal__slider_review .main-modal__slider__item {
+  aspect-ratio: 11.25/15;
+}
+.main-modal__slider_review:nth-child(3) .slider__item, .main-modal__slider_review:nth-child(6) .slider__item {
+  aspect-ratio: 2/1.5 !important;
+}
+.main-modal__slider_review:nth-child(3) .slider__item .main-modal__slider__item, .main-modal__slider_review:nth-child(6) .slider__item .main-modal__slider__item {
+  max-height: 1000px;
+  aspect-ratio: 2/1.5 !important;
+}
+.main-modal__slider_review:nth-child(4) .slider__item {
+  aspect-ratio: 1.125/1.5;
+}
+.main-modal__slider_review:nth-child(4) .slider__item .main-modal__slider__item {
+  aspect-ratio: 1.125/1.5;
+  max-height: 1170px;
+}
+.main-modal__slider:nth-child(5) .slider__item {
+  aspect-ratio: 4/3;
+}
+.main-modal__slider:nth-child(5) .slider__item .main-modal__slider__item {
+  aspect-ratio: 4/3;
+  max-height: 992px;
+}
 .main-modal__slider__item {
-  height: 400px;
-  transform: scale(1.05);
-  background: url(../../images/bg-1-m.png) no-repeat;
-  background-position: center;
-  background-size: cover;
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 19.2/8.37;
+  width: 100%;
+  max-height: 600px;
+  min-height: 150px;
+}
+.main-modal__slider__item picture {
+  margin-bottom: 0 !important;
 }
 .main-modal__slider__item__wrapper {
   overflow: hidden;
   border-radius: 12px;
 }
-@supports (gap: 1px) {
-  .main-modal__slider__item {
-    background: url(../../images/bg-1-m.webp) no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-}
-@media (min-width: 768px) {
-  .main-modal__slider__item {
-    height: 600px;
-    background: url(../../images/bg-1-t.png) no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-  @supports (gap: 1px) {
-    .main-modal__slider__item {
-      background: url(../../images/bg-1-t.webp) no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-  }
-}
-@media (min-width: 1440px) {
-  .main-modal__slider__item {
-    background: url(../../images/bg-1.png) no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-  @supports (gap: 1px) {
-    .main-modal__slider__item {
-      background: url(../../images/bg-1.webp) no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-  }
+.main-modal__slider__item img {
+  min-height: 150px;
 }
 .main-modal picture {
   margin-bottom: 20px;

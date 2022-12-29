@@ -17,11 +17,13 @@
     padding-top: 180px;
     background-image: url('../../images/bg-1-m.png');
     min-height: 465px;
+    background-size: auto 100%;
     background-repeat: no-repeat;
     background-position: center;
     @supports (gap: 1px) {
     background-image: url('../../images/bg-1-m.webp');
     background-repeat: no-repeat;
+    background-size: auto 100%;
     background-position: center;
     }
   }

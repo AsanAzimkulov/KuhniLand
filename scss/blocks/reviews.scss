@@ -20,6 +20,7 @@
     }
     &__content{
       padding: 20px;
+      height: 100%;
     }
 
     &__title{
@@ -57,6 +58,10 @@
       padding: 0 50px;
       opacity: 0;
       transition: opacity 300ms ease-in;
+      min-height: 100%;
+      > div{
+        min-height: 100%;
+      }
       &_active{
         opacity: 1;
       }
@@ -121,14 +126,7 @@
         height: 160px;
         width: 100%;
         border-radius: 20px 20px 0 0;
-        background: url(../../images/r-1.png) no-repeat;
-        background-position: center;
-        background-size: cover;
-        @supports (gap: 1px) {
-        background: url(../../images/r-1.webp) no-repeat;
-        background-position: center;
-        background-size: cover;
-        }
+
       }
     }
     .slider{
@@ -137,6 +135,42 @@
         padding: 0 20px;
         max-width: 50%;
         flex: 0 0 50%;
+        &:nth-child(1), &:nth-child(4){
+          .reviews__item__picture{
+            background: url(../../images/reviews/1-1.png) no-repeat;
+            background-position: center;
+            background-size: cover;
+            @supports (gap: 1px) {
+            background: url(../../images/reviews/1-1.webp) no-repeat;
+            background-position: center;
+            background-size: cover;
+            }
+          }
+        }
+        &:nth-child(2){
+          .reviews__item__picture{
+          background: url(../../images/reviews/2-1.png) no-repeat;
+          background-position: center;
+          background-size: cover;
+          @supports (gap: 1px) {
+          background: url(../../images/reviews/2-1.webp) no-repeat;
+          background-position: center;
+          background-size: cover;
+          }
+        }
+        }
+        &:nth-child(3){
+          .reviews__item__picture{
+          background: url(../../images/reviews/3-1.png) no-repeat;
+          background-position: center;
+          background-size: cover;
+          @supports (gap: 1px) {
+          background: url(../../images/reviews/3-1.webp) no-repeat;
+          background-position: center;
+          background-size: cover;
+          }
+        }
+        }
       }
       &__indicators{
         display: none;

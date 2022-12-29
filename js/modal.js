@@ -62,24 +62,54 @@ const mainModals = document.querySelectorAll('.main-modal');
 
 [...mainModals].forEach((modal) => {
 
-  const slides = Array.from(modal.querySelectorAll('.slider .slider__item'))
+  if (+modal.dataset.mainModal === 4) {
+    // Review modal
+    $("picture img").css({ 'visibility': 'visible', 'width': '100%' });
+    const sliders = Array.from(modal.querySelectorAll('.slider'));
+    sliders.forEach(slider => {
+      const slides = Array.from(slider.querySelectorAll('.slider__item'))
 
-  if (modal.querySelector('.slider') && slides.length > 1) {
-    const prev = modal.querySelector('.slider__control[data-slide="prev"]');
-    const next = modal.querySelector('.slider__control[data-slide="next"]');
+      if (slides.length > 1) {
+        const prev = slider.querySelector('.slider__control[data-slide="prev"]');
+        const next = slider.querySelector('.slider__control[data-slide="next"]');
 
-    function changeSlide() {
-      const index = slides.findIndex(slide => slide.classList.contains('slider__item_active'));
-      slides[index].classList.remove('slider__item_active');
-      if (index === 0) {
-        slides[1].classList.add('slider__item_active')
-      } else {
-        slides[0].classList.add('slider__item_active')
+        function changeSlide() {
+          const index = slides.findIndex(slide => slide.classList.contains('slider__item_active'));
+          slides[index].classList.remove('slider__item_active');
+          if (index === 0) {
+            slides[1].classList.add('slider__item_active')
+          } else {
+            slides[0].classList.add('slider__item_active')
+          }
+        }
+
+        prev.addEventListener('click', changeSlide)
+        next.addEventListener('click', changeSlide)
       }
-    }
+    })
 
-    prev.addEventListener('click', changeSlide)
-    next.addEventListener('click', changeSlide)
+
+
+  } else {
+    const slides = Array.from(modal.querySelectorAll('.slider .slider__item'))
+
+    if (modal.querySelector('.slider') && slides.length > 1) {
+      const prev = modal.querySelector('.slider__control[data-slide="prev"]');
+      const next = modal.querySelector('.slider__control[data-slide="next"]');
+
+      function changeSlide() {
+        const index = slides.findIndex(slide => slide.classList.contains('slider__item_active'));
+        slides[index].classList.remove('slider__item_active');
+        if (index === 0) {
+          slides[1].classList.add('slider__item_active')
+        } else {
+          slides[0].classList.add('slider__item_active')
+        }
+      }
+
+      prev.addEventListener('click', changeSlide)
+      next.addEventListener('click', changeSlide)
+    }
   }
 
   const mainModalBody = modal.querySelector('.main-modal__body');
@@ -88,12 +118,17 @@ const mainModals = document.querySelectorAll('.main-modal');
 
   const closeMainModalIfNeed = (event) => closeModalIfClickOutside(event, () => modal.classList.remove('main-modal--opened'), mainModalBody, modal)
 
-  callMainModalTriggers.forEach(trigger =>
+  callMainModalTriggers.forEach((trigger, index) =>
     trigger.addEventListener('click', (e) => {
       e.preventDefault();
+
       if (+modal.dataset.mainModal === 4) {
         // Review modal
-        [...modal.querySelectorAll('.main-modal__text'), ...modal.querySelectorAll('.main-modal__subtitle'), ...modal.querySelectorAll('.main-modal__date')].forEach(el => el.remove());
+        [...modal.querySelectorAll('.main-modal__text')].forEach(el => el.remove());
+        [...modal.querySelectorAll('.slider')].forEach(slider => slider.style.display = 'none');
+
+
+        [...modal.querySelectorAll('.slider')][Math.round(index / 2)].style.display = 'block';
 
         const content = trigger.closest('.reviews__item').querySelector('.reviews__item__modal-content').cloneNode(true);
 

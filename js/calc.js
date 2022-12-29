@@ -224,7 +224,7 @@ function setPdf(fileName, formData) {
   const shareBtn = calculationModal.querySelector('#calc-modal-share');
 
   const url = './pdf/' + fileName + '.pdf';
-  window.pdfUrl = window.location.origin + url.substr(1);
+  window.pdfUrl = window.location.origin.replace('xn----etbpbjeqt5au7e.xn--p1ai', 'гриль-кухни.рф') + url.substr(1);
 
   downloadBtn.onclick = () => download_file(url, fileName + '.pdf');
 

@@ -62,6 +62,10 @@
     overflow: hidden;
 }
 
+.visually-hidden{
+  @include visually-hidden;
+}
+
 .no-scroll-y{
   overflow-y: hidden;
 }
