@@ -414,6 +414,7 @@ function onCalc(e) {
   material.textContent = formatMaterial(formData.get(formFields.material));
 
   const name = calculationModal.querySelector('#calc-modal-name');
+  console.log(name)
   name.textContent = formatKitchenName(formData.get(formFields.material));
 
   const installation = calculationModal.querySelector('#calc-modal-installation');

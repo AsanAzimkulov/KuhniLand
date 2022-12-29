@@ -253,7 +253,7 @@
       // transform: rotateY(180deg);
       &[data-slide="next"]{
         background: url(../../images/icons/slider-next.svg) no-repeat;
-        background-position: 0px 50%;
+        background-position: 10px 50%;
         background-size: 20px 120px;
         // transform: rotateY(0deg);
         left: unset;
@@ -281,6 +281,7 @@
         background-size: 40px 320px;
         &[data-slide="next"]{
           width: 80px;
+          background-position: 20px 50%;
           // background-position: 0px 304.5px;
           background-size: 40px 320px;
         }

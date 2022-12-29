@@ -4988,7 +4988,7 @@
 }
 .main-modal .slider__control[data-slide=next] {
   background: url(../../images/icons/slider-next.svg) no-repeat;
-  background-position: 0px 50%;
+  background-position: 10px 50%;
   background-size: 20px 120px;
   left: unset;
   right: 0;
@@ -5014,6 +5014,7 @@
   }
   .main-modal .slider__control[data-slide=next] {
     width: 80px;
+    background-position: 20px 50%;
     background-size: 40px 320px;
   }
 }
