@@ -406,9 +406,48 @@ function onCalc(e) {
   pricePerMeter.textContent = formatByThousands(getPricePerMeter(formData));
 
   const total = calculationModal.querySelector('#calc-modal-total');
+
   total.textContent = formatByThousands(roundToNearestThousand(
     getPricePerMeter(formData) * Number.parseFloat(formData.get(formFields.dimension).replace(',', '.'))
   ));
+
+  // Exceptions
+
+  // if (formData.get(formFields.configuration) === formValues[formFields.configuration].straight &&
+  //   formData.get(formFields.material) === formValues[formFields.material].composit
+  //   && formData.get(formFields.installation) === formValues[formFields.installation].inside
+  //   && formData.get(formFields.dimension) === '2.2'
+  // ) {
+  //   total.textContent = formatByThousands(roundToNearestThousand(605000));
+  // } 
+
+  if (formData.get(formFields.configuration) === formValues[formFields.configuration].withIsland &&
+    formData.get(formFields.material) === formValues[formFields.material].composit
+    && formData.get(formFields.installation) === formValues[formFields.installation].inside
+    && formData.get(formFields.dimension) === '3.5 п.м'
+  ) {
+    total.textContent = formatByThousands(965000);
+  } else if (formData.get(formFields.configuration) === formValues[formFields.configuration].straight &&
+    formData.get(formFields.material) === formValues[formFields.material].composit
+    && formData.get(formFields.installation) === formValues[formFields.installation].outside
+    && formData.get(formFields.dimension) === '2.2 п.м'
+  ) {
+    total.textContent = formatByThousands(750000);
+  } else if (formData.get(formFields.configuration) === formValues[formFields.configuration].angular &&
+    formData.get(formFields.material) === formValues[formFields.material].composit
+    && formData.get(formFields.installation) === formValues[formFields.installation].outside
+    && formData.get(formFields.dimension) === '2.6 п.м'
+  ) {
+    total.textContent = formatByThousands(900000);
+  } else if (formData.get(formFields.configuration) === formValues[formFields.configuration].withIsland &&
+    formData.get(formFields.material) === formValues[formFields.material].composit
+    && formData.get(formFields.installation) === formValues[formFields.installation].outside
+    && formData.get(formFields.dimension) === '3.5 п.м'
+  ) {
+    total.textContent = formatByThousands(1250000);
+  }
+
+  // 
 
   const configuration = calculationModal.querySelector('#calc-modal-configuration');
   configuration.textContent = formatConfiguration(formData.get(formFields.configuration));

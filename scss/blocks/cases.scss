@@ -9,11 +9,11 @@
     @media(max-width: 767.5px){
       aspect-ratio: 19.2 /  8.86;
       // min-height: 250px;
-      @media(max-width: 384px){
-        img{
-          transform: translateX(-25%);
-        }
-      }
+      // @media(max-width: 384px){
+      //   img{
+      //     transform: translateX(-25%);
+      //   }
+      // }
     }
     
     &__content{

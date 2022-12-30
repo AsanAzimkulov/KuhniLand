@@ -2444,11 +2444,6 @@
     aspect-ratio: 19.2/8.86;
   }
 }
-@media (max-width: 767.5px) and (max-width: 384px) {
-  .cases__item img {
-    transform: translateX(-25%);
-  }
-}
 .cases__item__content {
   display: none;
 }
